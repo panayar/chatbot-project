@@ -5,6 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+p, h1, h2, h3, h4, h5, span, div {
+    overflow-y: hidden;
 }
 
 $color-primary: #0070F0;
@@ -16,11 +21,13 @@ $color-purple-light: #743AF0;
 $color-error: #FF6D6D;
 $color-error-light: #FFD6D6;
 $color-white: #FFFFFF;
+$color-gray: #999191;
 
 
 $font-size-small: 1rem; /* Equivalent to 16px (standard base size) */
 $font-size-medium: 1.125rem; /* Slightly larger than base size */
 $font-size-large: 1.25rem; /* Larger than medium */
+$font-size-large-title: 2.25rem;
 $font-size-extra-large: 3rem; /* Substantially larger for emphasis */
 
 $font-weight-light: 300;

@@ -13,7 +13,7 @@ import Menu from "../components/navBar/Menu";
 const Home = () => {
   return (
     <>
-      <div className="container">
+      <div className="container home">
         <div className="row">
             <div className="col-lg-6 col-sm-12 col-md-6">
                 <Menu/>

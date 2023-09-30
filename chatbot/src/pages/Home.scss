@@ -1,5 +1,9 @@
 @import "../styles/global.scss";
 
+.home {
+  height: 100vh;
+}
+
 .home-square {
   display: flex;
   width: 100%;
@@ -127,7 +131,7 @@
 .robot-img {
   z-index: 1;
   position: absolute !important;
-  width: 100vh;
+  width: 89vh;
   margin-top: -100px;
 }
 
