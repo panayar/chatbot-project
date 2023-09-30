@@ -10,16 +10,23 @@
 $color-primary: #0070F0;
 $color-secondary: #1E232C;
 $color-tertiary: #BFDDFF;
-$color-quaternary: #F2F8FF;
+$color-quaternary: #E4F1FF;
+$color-purple : #3C46FE;
+$color-purple-light: #743AF0;
 $color-error: #FF6D6D;
 $color-error-light: #FFD6D6;
 $color-white: #FFFFFF;
 
 
-$font-size-small: 12px;
-$font-size-medium: 17px;
-$font-size-large: 16px;
+$font-size-small: 1rem; /* Equivalent to 16px (standard base size) */
+$font-size-medium: 1.125rem; /* Slightly larger than base size */
+$font-size-large: 1.25rem; /* Larger than medium */
+$font-size-extra-large: 3rem; /* Substantially larger for emphasis */
 
 $font-weight-light: 300;
 $font-weight-regular: 400;
-$font-weight-bold: 600;
+$font-weight-bold: 700; /* Commonly used for bold text */
+
+$border-radius-small: 0.25rem; /* Equivalent to 4px (subtle rounding) */
+$border-radius-medium: 0.5rem; /* Equivalent to 8px (moderate rounding) */
+$border-radius-large: 1rem; /* Equivalent to 16px (significant rounding) */

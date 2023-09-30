@@ -1,11 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Menu from './components/navBar/Menu';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/global.scss";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
-      <Menu/>
+      <div className="container-fluid">
+        <Home />
+      </div>
     </>
   );
 }

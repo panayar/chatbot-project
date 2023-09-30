@@ -5,7 +5,7 @@ import "./Menu.scss";
 
 const Menu = () => {
   return (
-    <nav className="navbar fixed-top">
+    <nav className="navbar">
       <div className="container-fluid">
         <button
           className="btn"
