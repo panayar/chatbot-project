@@ -1,8 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Menu from './components/navBar/Menu';
+import "./styles/global.scss";
+
 function App() {
   return (
-    <div className="App">
-      Hello World
-    </div>
+    <>
+      <Menu/>
+    </>
   );
 }
 
