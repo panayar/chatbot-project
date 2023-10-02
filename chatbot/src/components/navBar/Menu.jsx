@@ -24,6 +24,7 @@ const Menu = () => {
         >
           <div className="offcanvas-header">
             <h5 className="menu-title" id="offcanvasExampleLabel">
+              <img src={Icon} style={{marginLeft: "10px"}} className="robot-icon" alt="robot-icon" />
               ADDA CHAT
             </h5>
             <button
@@ -55,7 +56,7 @@ const Menu = () => {
         </div>
         <a className="navbar-brand menu-title" href="/">
           ADDA CHAT
-          <img src={Icon} className="robot-icon" alt="robot-icon" />
+          <img src={Icon} style={{marginLeft: "10px"}} className="robot-icon" alt="robot-icon" />
         </a>
         <div></div>
       </div>

@@ -9,7 +9,7 @@
 }
 
 .content {
-    width: 80%;
+  width: 80%;
 }
 
 .about-info {
@@ -19,7 +19,7 @@
   flex-direction: column;
 
   & h2 {
-    font-weight: 600;
+    font-weight: 800;
     font-size: $font-size-large-title;
     margin-top: 20px;
     text-transform: capitalize;
@@ -38,15 +38,30 @@
   }
 }
 
-
 .about-button {
-    background-color: $color-purple;
-    padding: 10px;
-    width : 250px;
-    font-size: $font-size-small;
-    color: $color-white;
-    border-radius: $border-radius-small;
-    font-weight: 200;
-    border: none;
-    margin-top: 20px;
+  background-color: $color-purple;
+  padding: 10px;
+  width: 250px;
+  font-size: $font-size-small;
+  color: $color-white;
+  border-radius: $border-radius-small;
+  font-weight: 200;
+  border: none;
+  margin-top: 20px;
+}
+
+.about-img {
+  width: 95%;
+  height: 100%;
+  margin-top: 20px;
+}
+
+@media (max-width: 780px) {
+  .about-img {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+  }
 }
