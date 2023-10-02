@@ -40,9 +40,11 @@ const Home = () => {
               <div className="home-team">
                 <p>Meet our team</p>
                 <div className="home-team-img">
-                  <img src={Person1} alt="person1"></img>
-                  <img src={Person2} alt="person2"></img>
-                  <img src={Person3} alt="person3"></img>
+                  <a href="#members">
+                    <img src={Person1} alt="person1"></img>
+                    <img src={Person2} alt="person2"></img>
+                    <img src={Person3} alt="person3"></img>
+                  </a>
                 </div>
               </div>
             </div>

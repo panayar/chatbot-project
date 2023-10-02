@@ -37,6 +37,17 @@
   }
 }
 
+.about-title {
+  color: $color-purple;
+  margin-bottom: 20px;
+}
+
+.dev-title {
+  font-weight: 800;
+  font-size: $font-size-large-title;
+  margin-top: 20px;
+}
+
 .about-button {
   background-color: $color-purple;
   padding: 10px;

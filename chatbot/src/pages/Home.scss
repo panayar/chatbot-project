@@ -124,7 +124,7 @@
 
   & img {
     margin-left: 10px;
-    width: 50px;
+    width: 60px;
   }
 }
 
@@ -162,7 +162,7 @@
 .animated {
   img {
     animation: moveForwardBackward 2s infinite; /* Infinite loop */
-    transition: transform 2s ease-in-out;
+    transition: transform 1.5s ease-in-out;
   }
 
 }
