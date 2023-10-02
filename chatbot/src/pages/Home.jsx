@@ -13,11 +13,11 @@ import Menu from "../components/navBar/Menu";
 const Home = () => {
   return (
     <>
-      <div className="container home">
+      <div className="container home" id="home">
         <div className="row">
-            <div className="col-lg-6 col-sm-12 col-md-6">
-                <Menu/>
-            </div>
+          <div className="col-lg-6 col-sm-12 col-md-6">
+            <Menu />
+          </div>
         </div>
         <div className="row">
           <div className="col-lg-6 col-md-12 col-sm-12 mt-5">
@@ -52,7 +52,12 @@ const Home = () => {
                 <div className="home-purple-square">
                   <h4>Start Conversation</h4>
                   <div className="robot-section">
-                    <img src={Icon} alt="robot-icon" className="robot-icon" />
+                    <img
+                      src={Icon}
+                      alt="robot-icon"
+                      style={{ marginLeft: "2px" }}
+                      className="robot-icon"
+                    />
 
                     <p className="text-robot-section">
                       Adda Usual Reply Time <br />
@@ -71,11 +76,12 @@ const Home = () => {
                   </button>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-12 col-sm-12">
+              <div className="col-lg-4 col-md-12 col-sm-12 animated">
                 <div className="home-light-square-button">
-                    <h3>Get to know more about our project </h3>
-                    <img src={Arrow} alt="arrow" />
-
+                  <a href="#about" className="link">
+                    <h3>Get to know more about our project</h3>
+                  </a>
+                  <img src={Arrow} alt="arrow" />
                 </div>
               </div>
             </div>

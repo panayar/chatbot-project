@@ -6,7 +6,7 @@ import Memoji3 from "../images/memoji3.svg";
 
 const Members = () => {
   return (
-    <div className="members">
+    <div className="members" id="members">
       <div className="container">
         <div className="row">
           <div className="col-md-12 titles">

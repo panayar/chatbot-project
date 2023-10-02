@@ -140,3 +140,29 @@
     display: none;
   }
 }
+
+.link {
+  text-decoration: none;
+  color: $color-white;
+}
+
+
+@keyframes moveForwardBackward {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px); /* Move image forward */
+  }
+  100% {
+    transform: translateX(0); /* Move image back to its original position */
+  }
+}
+
+.animated {
+  img {
+    animation: moveForwardBackward 2s infinite; /* Infinite loop */
+    transition: transform 2s ease-in-out;
+  }
+
+}
