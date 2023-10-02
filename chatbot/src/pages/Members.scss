@@ -1,0 +1,31 @@
+@import "../styles/global.scss";
+
+.members {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.member-name {
+  margin-top: 12px;
+  color: $color-purple;
+  font-size: $font-size-large;
+  font-weight: 900;
+}
+
+.titles {
+  text-align: left;
+  margin-bottom: 80px;
+
+  & h1 {
+    font-weight: 800;
+    font-size: $font-size-large-title;
+    margin-top: 20px;
+  }
+
+  & span {
+    color: $color-purple;
+  }
+}
