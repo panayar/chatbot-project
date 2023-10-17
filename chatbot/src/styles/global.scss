@@ -1,28 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700;800&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
-p, h1, h2, h3, h4, h5, span, div {
-    overflow-y: hidden;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span,
+div {
+  overflow-y: hidden;
 }
 
-$color-primary: #0070F0;
-$color-secondary: #1E232C;
-$color-tertiary: #BFDDFF;
-$color-quaternary: #E4F1FF;
-$color-purple : #3C46FE;
-$color-purple-light: #743AF0;
-$color-error: #FF6D6D;
-$color-error-light: #FFD6D6;
-$color-white: #FFFFFF;
+$color-primary: #0070f0;
+$color-secondary: #1e232c;
+$color-tertiary: #bfddff;
+$color-quaternary: #e4f1ff;
+$color-purple: #3c46fe;
+$color-purple-light: #743af0;
+$color-error: #ff6d6d;
+$color-error-light: #ffd6d6;
+$color-white: #ffffff;
 $color-gray: #999191;
-
 
 $font-size-small: 1rem; /* Equivalent to 16px (standard base size) */
 $font-size-medium: 1.125rem; /* Slightly larger than base size */

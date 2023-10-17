@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../images/Icons/robot-icon.svg";
 import "./Forms.scss";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="container">
       <div className="form-container">
@@ -10,7 +10,7 @@ const Login = () => {
           <div className="col-12">
             <img className="form-icon" src={Logo} alt="Logo" />
             <h2 className="form-title">
-              Welcome back! Glad <br /> to see you, Again!
+              Hello! Register to get <br /> started
             </h2>
           </div>
           <div className="col-12 mt-4">
@@ -18,10 +18,18 @@ const Login = () => {
               <div className="col-12">
                 <input
                   className="form-input"
+                  type="text"
+                  placeholder="Username"
+                />
+              </div>
+              <div className="col-12">
+                <input
+                  className="form-input"
                   type="email"
                   placeholder="Enter your email"
                 />
               </div>
+
               <div className="col-12">
                 <input
                   className="form-input"
@@ -29,16 +37,23 @@ const Login = () => {
                   placeholder="Enter your password"
                 />
               </div>
+              <div className="col-12">
+                <input
+                  className="form-input"
+                  type="password"
+                  placeholder="Confirm your password"
+                />
+              </div>
               <div className="col-12 mt-5">
                 <button type="submit" className="form-button">
-                  Login
+                  Register
                 </button>
               </div>
             </form>
           </div>
           <p className="form-text">
-            Don't you have an account?{" "}
-            <span className="form-span">Register now</span>
+            Already have an account?{" "}
+            <span className="form-span">Login Now</span>
           </p>
         </div>
       </div>
@@ -46,4 +61,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

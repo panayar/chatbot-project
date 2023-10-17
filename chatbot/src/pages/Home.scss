@@ -51,7 +51,16 @@
     margin-left: 20px;
     background-color: $color-purple;
   }
+
+  &:hover {
+    & button {
+      animation: moveForwardBackward 1.5s; /* Infinite loop */
+      transition: transform 1s ease-in-out;
+    }
+  }
+
 }
+
 
 .home-team {
   & p {
@@ -161,8 +170,8 @@
 
 .animated {
   img {
-    animation: moveForwardBackward 2s infinite; /* Infinite loop */
-    transition: transform 1.5s ease-in-out;
+    animation: moveForwardBackward 1.5s infinite; /* Infinite loop */
+    transition: transform 1s ease-in-out;
   }
 
 }

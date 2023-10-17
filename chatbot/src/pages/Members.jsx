@@ -9,7 +9,7 @@ const Members = () => {
     <div className="members" id="members">
       <div className="container">
         <div className="row">
-          <div className="col-md-12 titles">
+          <div className="col-md-12 titles col-sm-12 col-lg-12">
             <span className="member-subtitle">ABOUT US</span>
             <h1 className="member-title">Members</h1>
           </div>

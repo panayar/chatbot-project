@@ -2,48 +2,45 @@ import React from "react";
 import Logo from "../../images/Icons/robot-icon.svg";
 import "./Forms.scss";
 
-const Login = () => {
+const NewPass = () => {
   return (
     <div className="container">
       <div className="form-container">
         <div className="row">
           <div className="col-12">
             <img className="form-icon" src={Logo} alt="Logo" />
-            <h2 className="form-title">
-              Welcome back! Glad <br /> to see you, Again!
-            </h2>
+            <h2 className="form-title">Create new password</h2>
+            <p className="form-description">
+              Your new password must be unique from those previously used.
+            </p>
           </div>
-          <div className="col-12 mt-4">
+          <div className="col-12 mt-2">
             <form>
               <div className="col-12">
                 <input
                   className="form-input"
-                  type="email"
-                  placeholder="Enter your email"
+                  type="password"
+                  placeholder="New Password"
                 />
               </div>
               <div className="col-12">
                 <input
                   className="form-input"
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Confirm Password"
                 />
               </div>
-              <div className="col-12 mt-5">
+              <div className="col-12 mt-4">
                 <button type="submit" className="form-button">
-                  Login
+                  Reset Password
                 </button>
               </div>
             </form>
           </div>
-          <p className="form-text">
-            Don't you have an account?{" "}
-            <span className="form-span">Register now</span>
-          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default NewPass;
