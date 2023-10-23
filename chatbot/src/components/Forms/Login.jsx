@@ -1,48 +1,97 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../images/Icons/robot-icon.svg";
 import "./Forms.scss";
+import { Link } from "wouter";
+import FormMenu from "../navBar/FormMenu";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setIsAlertVisible(false);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setIsAlertVisible(false);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      setIsAlertVisible(true);
+      return;
+    }
+
+    console.log("Email:", email);
+    console.log("Password:", password);
+  };
+
   return (
-    <div className="container">
-      <div className="form-container">
-        <div className="row">
-          <div className="col-12">
-            <img className="form-icon" src={Logo} alt="Logo" />
-            <h2 className="form-title">
-              Welcome back! Glad <br /> to see you, Again!
-            </h2>
+    <>
+      <FormMenu />
+      <div className="cont-form">
+        <div className="form-container">
+          <div className="row">
+            <div className="col-12">
+              <img className="form-icon" src={Logo} alt="Logo" />
+              <h2 className="form-title">
+                Welcome back! Glad <br /> to see you, Again!
+              </h2>
+            </div>
+            <div className="col-12 mt-4">
+              <form onSubmit={handleSubmit}>
+                {isAlertVisible && (
+                  <div className="alert alert-danger transition" role="alert">
+                    Please enter both email and password.
+                  </div>
+                )}
+                <div className="col-12">
+                  <input
+                    className="form-input"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
+                </div>
+                <div className="col-12">
+                  <input
+                    className="form-input"
+                    type="password"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                  />
+                </div>
+                <div className="col-12 mt-5">
+                  <button type="submit" className="form-button">
+                    Login
+                  </button>
+                </div>
+              </form>
+              <p className="form-text">
+                <Link className="link-text" to="/forgotpass">
+                  Forgot your password?
+                </Link>{" "}
+              </p>
+            </div>
+            <p className="form-text">
+              Don't you have an account?{" "}
+              <span className="form-span">
+                <Link className="link-text" to="/register">
+                  Register now
+                </Link>{" "}
+              </span>
+            </p>
           </div>
-          <div className="col-12 mt-4">
-            <form>
-              <div className="col-12">
-                <input
-                  className="form-input"
-                  type="email"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div className="col-12">
-                <input
-                  className="form-input"
-                  type="password"
-                  placeholder="Enter your password"
-                />
-              </div>
-              <div className="col-12 mt-5">
-                <button type="submit" className="form-button">
-                  Login
-                </button>
-              </div>
-            </form>
-          </div>
-          <p className="form-text">
-            Don't you have an account?{" "}
-            <span className="form-span">Register now</span>
-          </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

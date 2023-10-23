@@ -4,25 +4,35 @@ import "./Forms.scss";
 import FormMenu from "../navBar/FormMenu";
 import { Link } from "wouter";
 
-const ForgotPass = () => {
-  const [email, setEmail] = useState("");
+const VerifyOTPCode = () => {
+  const [code, setCode] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleCodeChange = (e) => {
+    setCode(e.target.value);
     setError(null);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!email) {
-      setError("Please enter your email.");
+    if (!code) {
+      setError("Please enter the OTP code.");
       return;
     }
 
-    setSuccess(true);
+    // Replace this with your code to verify the OTP code.
+    // If the code is valid, setSuccess(true); otherwise, set an error message.
+
+    // Example: Replace this with your code for verifying the OTP code.
+    const isValidCode = true; // Replace with your actual code validation logic.
+
+    if (isValidCode) {
+      setSuccess(true);
+    } else {
+      setError("Invalid OTP code. Please try again.");
+    }
   };
 
   return (
@@ -33,10 +43,9 @@ const ForgotPass = () => {
           <div className="row">
             <div className="col-12">
               <img className="form-icon" src={Logo} alt="Logo" />
-              <h2 className="form-title">Forgot Password?</h2>
+              <h2 className="form-title">Verify OTP Code</h2>
               <p className="form-description">
-                Don't worry! It happens. Please enter the email address linked
-                with your account.
+                Please enter the OTP code sent to your email.
               </p>
             </div>
             <div className="col-12 mt-2">
@@ -49,27 +58,27 @@ const ForgotPass = () => {
 
                 {success && (
                   <div className="alert  alert-success" role="alert">
-                    Reset code sent successfully to your email.
+                    OTP code verified successfully.
                   </div>
                 )}
                 <div className="col-12">
                   <input
                     className="form-input"
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={handleEmailChange}
+                    type="text"
+                    placeholder="Enter OTP code"
+                    value={code}
+                    onChange={handleCodeChange}
                   />
                 </div>
                 <div className="col-12 mt-4">
                   {success ? (
                     <button className="form-button">
                       {" "}
-                      <Link className="link-text" to="/verifyOTP"> Check OTP Code</Link>
+                      <Link className="link-text" to="/newpass"> Continue</Link>
                     </button>
                   ) : (
                     <button type="submit" className="form-button">
-                      Send Code
+                      Verify Code
                     </button>
                   )}
                 </div>
@@ -82,4 +91,4 @@ const ForgotPass = () => {
   );
 };
 
-export default ForgotPass;
+export default VerifyOTPCode;

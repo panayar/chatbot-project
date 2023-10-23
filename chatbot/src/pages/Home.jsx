@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "wouter";
+import Menu from "../components/navBar/Menu";
 import ArrowIcon from "../images/Icons/arrow.svg";
 import Person1 from "../images/prs-1.png";
 import Person2 from "../images/prs-2.png";
@@ -8,7 +10,6 @@ import Clock from "../images/Icons/clock-icon.svg";
 import Arrow from "../images/Icons/half-arrow-icon.svg";
 import Robot from "../images/robot.svg";
 import "./Home.scss";
-import Menu from "../components/navBar/Menu";
 
 const Home = () => {
   return (
@@ -30,13 +31,14 @@ const Home = () => {
                 mental health tool.
               </p>
 
-              <span className="home-try-it-out">
-                Try it out{" "}
-                <button className="home-arrow-icon">
-                  <img src={ArrowIcon} alt="arrow-icon"></img>
-                </button>
-              </span>
-
+              <Link className="link-text" to="/chat">
+                <span className="home-try-it-out">
+                  Try it out{" "}
+                  <button className="home-arrow-icon">
+                    <img src={ArrowIcon} alt="arrow-icon"></img>
+                  </button>
+                </span>
+              </Link>
               <div className="home-team">
                 <p>Meet our team</p>
                 <div className="home-team-img">
@@ -74,7 +76,9 @@ const Home = () => {
                     </p>
                   </div>
                   <button className="home-purple-square-button">
-                    Send Message to Adda
+                    <Link className="link-text" to="/chat">
+                      Start Conversation
+                    </Link>
                   </button>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 @import "../../styles/global.scss";
 
-.container {
+.cont-form {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -73,6 +73,10 @@
   font-size: $font-size-medium;
   background-color: $color-secondary;
   border-radius: $border-radius-medium;
+
+  & a {
+    color: white;
+  }
 
   &:hover {
     cursor: pointer;
