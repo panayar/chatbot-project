@@ -2,6 +2,7 @@ import { Route, Router } from 'wouter';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/global.scss";
+import "./normal.css";
 import Login from "./components/Forms/Login";
 import Register from "./components/Forms/Register";
 import ForgotPass from "./components/Forms/ForgotPass";

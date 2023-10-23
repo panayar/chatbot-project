@@ -1,0 +1,126 @@
+@import "../../styles/global.scss";
+
+.chat {
+  display: flex;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sideMenu {
+  width: 280px;
+  padding: 10px;
+  background-color: $color-secondary;
+}
+
+.chatbox {
+  flex: 1;
+  background-color: $color-white;
+  position: relative;
+}
+
+.side-menu-button {
+  padding: 12px;
+  border-radius: $border-radius-medium;
+  text-align: left;
+  transition: ease 0.25s all;
+  background-color: $color-purple;
+
+  & span {
+    font-size: 20px;
+    padding: 6px;
+    padding-right: 12px;
+  }
+
+  &:hover {
+    background-color: rgba($color-purple, 0.8);
+  }
+}
+
+.new-chat-link:hover {
+  text-decoration: underline;
+}
+
+.chat-input-holder {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  & :focus {
+      outline: $color-primary auto 5px;
+      transition: ease 0.25s all;
+  }
+}
+
+.chat-input-textarea {
+  background-color: $color-white;
+  width: 80%;
+  padding: 15px;
+  color: $color-secondary;
+  font-size: 1, 25em;
+  border-radius: 45px;
+  border: 2px solid rgba(65, 65, 65, 0.2);
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.send-button{
+    border: none;
+    background-color: transparent;
+
+    & :hover {
+       opacity: 0.9;
+       transition: ease 0.25s all;
+    }
+}
+
+.chat-log {
+  padding: 25px;
+  text-align: left;
+}
+
+.chat-message.chatbot {
+  background-color: $color-quaternary;
+  border-radius: $border-radius-large;
+  margin-bottom: 12px;
+}
+
+.chat-message-center {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+
+  & img {
+    margin-left: 2px;
+  }
+}
+
+.message.chatbot {
+  padding-left: 40px;
+  padding-right: 40px;
+  color: $color-primary;
+}
+
+.message {
+  padding-left: 40px;
+  padding-right: 40px;
+  color: $color-secondary;
+}
