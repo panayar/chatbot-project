@@ -8,16 +8,13 @@ import RobotIcon from "../images/Icons/chat-robot-icon.svg";
 import UserIcon from "../images/Icons/chat-user-icon.svg";
 import Robot from "../images/robot-figure.svg";
 import SendIcon from "../images/Icons/send-icon.svg";
+import LogoutICon from "../images/Icons/logout-icon.svg";
 
 function Chat() {
   const [messages, setMessages] = useState([
     {
       text: "Hi there! I'm Adda, how can I help you?",
       isUser: false,
-    },
-    {
-      text: "Hello world",
-      isUser: true,
     },
   ]);
   const [newMessage, setNewMessage] = useState("");
@@ -43,6 +40,13 @@ function Chat() {
 
   const scrollToBottom = () => {
     chatLogRef.current.scrollTop = chatLogRef.current.scrollHeight;
+  };
+
+  const handleLogout = () => {
+    // Perform the logout logic here.
+    // You can clear the user's session or token, redirect to the login page, etc.
+    // For demonstration purposes, we'll simply refresh the page.
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -82,6 +86,14 @@ function Chat() {
         </div>
 
         <img src={Robot} alt="robot-figure" className="robot-figure floating" />
+
+        <div className="side-menu-logout">
+          <button className="logout-button" onClick={handleLogout}>
+            {" "}
+            Logout
+            <img src={LogoutICon} alt="logoutIcon" />
+          </button>
+        </div>
       </aside>
 
       <section className="chatbox" ref={chatLogRef}>
@@ -105,7 +117,11 @@ function Chat() {
                   }`}
                 >
                   <div
-                    className={`message ${message.isUser ? "user" : "chatbot"}`}
+                    className={`message ${
+                      message.isUser
+                        ? "user chat-message"
+                        : "chatbot chatbot-scale-in"
+                    }`}
                   >
                     {message.text}
                   </div>

@@ -69,6 +69,25 @@
   border-radius: 25px;
 }
 
+.side-menu-logout {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: inherit;
+  margin-bottom: 2%;
+  cursor: pointer;
+
+  & button {
+    background-color: transparent;
+    color: white;
+    border: none;
+
+    & img {
+      margin-left: 12px;
+    }
+  }
+}
+
 .robot-figure {
   margin-top: 10%;
   display: flex;
@@ -193,15 +212,17 @@
 }
 
 .floating {
-  animation: float 4s infinite linear;
+  animation: float 4s infinite ease-in-out;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes float {
-  from {
-    transform: rotate(360deg) translate3d(10px, 0, 0) rotate(-360deg);
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
   }
-  to {
-    transform: rotate(0deg) translate3d(10px, 0, 0) rotate(0deg);
+  50% {
+    transform: translate3d(0, -25px, 0);
   }
 }
 
@@ -229,9 +250,42 @@
 
   .chat-input-textarea {
     width: 80%;
+    margin-bottom: 8%;
   }
 
   .chat-log {
-    margin-top: 10%;
+    margin-top: 15%;
+  }
+}
+
+.chat-message {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.chatbot-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
