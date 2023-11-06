@@ -3,9 +3,11 @@ import "./Chat.scss";
 
 import { Link } from "wouter";
 
-import Icon from "../../images/Icons/chat-robot.svg";
-import UserIcon from "../../images/Icons/user-icon.svg";
-import SendIcon from "../../images/Icons/send-icon.svg";
+import Icon from "../images/Icons/robot-icon.svg";
+import RobotIcon from "../images/Icons/chat-robot-icon.svg";
+import UserIcon from "../images/Icons/chat-user-icon.svg";
+import Robot from "../images/robot-figure.svg";
+import SendIcon from "../images/Icons/send-icon.svg";
 
 function Chat() {
   const [messages, setMessages] = useState([
@@ -53,23 +55,23 @@ function Chat() {
       <aside className="sideMenu">
         <div className="side-menu-icon mb-3">
           <Link to="/" className="navbar-brand menu-title">
-            ADDA CHAT
             <img
-              style={{ marginLeft: "12px", width: "30px" }}
+              style={{ marginLeft: "10px", width: "30px" }}
               src={Icon}
               className="robot-icon"
               alt="robot-icon"
             />
+            Adda Chat
           </Link>
+
+          <button className="new-chat">Beta Version</button>
         </div>
-        <div className="side-menu-button">
-          <span>+</span>
-          New Chat
-        </div>
+
+        <img src={Robot} alt="robot-figure" className="robot-figure floating" />
       </aside>
 
-      <section className="chatbox">
-        <div className="chat-log" ref={chatLogRef}>
+      <section className="chatbox" ref={chatLogRef}>
+        <div className="chat-log">
           {messages.map((message, index) => (
             <div
               key={index}
@@ -78,37 +80,48 @@ function Chat() {
               <div className="chat-message-center">
                 <div className="avatar">
                   <img
-                    src={message.isUser ? UserIcon : Icon}
+                    src={message.isUser ? UserIcon : RobotIcon}
                     className={message.isUser ? "user-icon" : "robot-icon"}
                     alt={message.isUser ? "user-icon" : "robot-icon"}
                   />
                 </div>
                 <div
-                  className={`message ${message.isUser ? "user" : "chatbot"}`}
+                  className={`message-container ${
+                    message.isUser ? "user" : "chatbot"
+                  }`}
                 >
-                  {message.text}
+                  <div
+                    className={`message ${message.isUser ? "user" : "chatbot"}`}
+                  >
+                    {message.text}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
         <div className="chat-input-holder">
-          <textarea
-            rows="1"
-            className="chat-input-textarea"
-            placeholder="Type a message..."
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-            onKeyPress={handleKeyPress}
-            ref={chatInputRef}
-          ></textarea>
-          <button
-            className="send-button"
-            onClick={handleSendMessage}
-            style={{ marginLeft: "12px" }}
-          >
-            <img src={SendIcon} alt="sendIcon" />
-          </button>
+          <div className="chat-input-holder-fixed">
+            <input
+              rows="1"
+              className="chat-input-textarea"
+              placeholder="Type a message..."
+              value={newMessage}
+              onChange={(e) => setNewMessage(e.target.value)}
+              onKeyPress={handleKeyPress}
+              ref={chatInputRef}
+            ></input>
+            <button
+              className="send-button"
+              onClick={handleSendMessage}
+              style={{ marginLeft: "12px" }}
+            >
+              <img src={SendIcon} alt="sendIcon" />
+            </button>
+          </div>
+          <span className="span-input-text">
+            Adda Chat isn't flawless, so verify vital details.
+          </span>
         </div>
       </section>
     </div>
