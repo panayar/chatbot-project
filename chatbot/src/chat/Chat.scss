@@ -192,15 +192,15 @@
 }
 
 .floating { 
-  animation: float 8s infinite linear;
+  animation: float 4s infinite linear;
 }
 
 
 @keyframes float {
   from {
-    transform: rotate(360deg) translate3d(8px, 0, 0) rotate(-360deg);
+    transform: rotate(360deg) translate3d(10px, 0, 0) rotate(-360deg);
   }
   to {
-    transform: rotate(0deg) translate3d(8px, 0, 0) rotate(0deg);
+    transform: rotate(0deg) translate3d(10px, 0, 0) rotate(0deg);
   }
 }
