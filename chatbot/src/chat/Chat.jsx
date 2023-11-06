@@ -12,12 +12,12 @@ import SendIcon from "../images/Icons/send-icon.svg";
 function Chat() {
   const [messages, setMessages] = useState([
     {
-      text: "Hello world",
-      isUser: true,
-    },
-    {
       text: "Hi there! I'm Adda, how can I help you?",
       isUser: false,
+    },
+    {
+      text: "Hello world",
+      isUser: true,
     },
   ]);
   const [newMessage, setNewMessage] = useState("");
@@ -52,6 +52,20 @@ function Chat() {
 
   return (
     <div className="chat">
+      <nav className="nav-chat">
+        <Link to="/" className="navbar-brand menu-title">
+          <img
+            style={{ marginLeft: "10px", width: "30px" }}
+            src={Icon}
+            className="robot-icon"
+            alt="robot-icon"
+          />
+          Adda Chat
+        </Link>
+
+        <button className="new-chat">Beta Version</button>
+      </nav>
+
       <aside className="sideMenu">
         <div className="side-menu-icon mb-3">
           <Link to="/" className="navbar-brand menu-title">

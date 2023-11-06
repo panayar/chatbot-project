@@ -13,7 +13,7 @@
 }
 
 .sideMenu {
-  width: 300px;
+  width: 550px;
   padding: 10px;
   background-color: #111827;
   color: white;
@@ -74,7 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 550px;
+  width: 60vh;
   position: absolute;
   z-index: 1;
 }
@@ -125,6 +125,7 @@
 .chat-log {
   padding: 25px;
   text-align: left;
+  margin-top: 5%;
 }
 
 .chat-message.chatbot {
@@ -191,10 +192,9 @@
   margin-bottom: 0.5%;
 }
 
-.floating { 
+.floating {
   animation: float 4s infinite linear;
 }
-
 
 @keyframes float {
   from {
@@ -202,5 +202,36 @@
   }
   to {
     transform: rotate(0deg) translate3d(10px, 0, 0) rotate(0deg);
+  }
+}
+
+.nav-chat {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background-color: #111827;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  margin-bottom: 2%;
+  top: 0;
+}
+
+@media screen and (max-width: 1250px) {
+  .sideMenu {
+    display: none;
+  }
+
+  .nav-chat {
+    display: block;
+  }
+
+  .chat-input-textarea {
+    width: 80%;
+  }
+
+  .chat-log {
+    margin-top: 10%;
   }
 }
