@@ -12,19 +12,21 @@
   right: 0;
 }
 
-.sideMenu {
-  width: 550px;
-  padding: 10px;
-  background-color: #111827;
-  color: white;
-}
-
 .chatbox {
   flex: 1;
   height: 85vh;
   background-color: #111827;
   position: relative;
   overflow-y: auto;
+}
+
+// Side menu styles
+
+.sideMenu {
+  width: 550px;
+  padding: 10px;
+  background-color: #111827;
+  color: white;
 }
 
 .side-menu-button {
@@ -43,21 +45,6 @@
 
   &:hover {
     background-color: rgba($color-tertiary, 0.9);
-  }
-}
-
-.new-chat {
-  padding: 5px;
-  font-size: 15px;
-  margin-left: 12px;
-  border-radius: $border-radius-medium;
-  background-color: #374151;
-  border: 1px solid #4b5563;
-  color: #d1d5db;
-
-  & :hover {
-    background-color: #4b5563;
-    transition: ease 0.25s all;
   }
 }
 
@@ -98,9 +85,36 @@
   z-index: 1;
 }
 
-.new-chat-link:hover {
-  text-decoration: underline;
+.btn-badge {
+  padding: 5px;
+  font-size: 15px;
+  margin-left: 12px;
+  border-radius: $border-radius-medium;
+  background-color: #374151;
+  border: 1px solid #4b5563;
+  color: #d1d5db;
+
+  & :hover {
+    background-color: #4b5563;
+    transition: ease 0.25s all;
+  }
 }
+
+// Chat nav styles only appear on mobile
+.nav-chat {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  background-color: #111827;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  margin-bottom: 2%;
+  top: 0;
+}
+
+//Chat input styles
 
 .chat-input-holder {
   display: flex;
@@ -140,6 +154,8 @@
   position: fixed;
   bottom: 0;
 }
+
+// chat log and messsages styles
 
 .chat-log {
   padding: 25px;
@@ -203,6 +219,7 @@
   color: $color-primary;
 }
 
+// input down text
 .span-input-text {
   color: $color-gray;
   position: fixed;
@@ -211,33 +228,7 @@
   margin-bottom: 0.5%;
 }
 
-.floating {
-  animation: float 4s infinite ease-in-out;
-  transform: translate3d(0, 0, 0);
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -25px, 0);
-  }
-}
-
-.nav-chat {
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  color: white;
-  background-color: #111827;
-  display: none;
-  position: absolute;
-  z-index: 1;
-  margin-bottom: 2%;
-  top: 0;
-}
+// Responsive
 
 @media screen and (max-width: 1250px) {
   .sideMenu {
@@ -257,6 +248,8 @@
     margin-top: 15%;
   }
 }
+
+// Animations
 
 .chat-message {
   opacity: 0;
@@ -287,5 +280,20 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+.floating {
+  animation: float 4s infinite ease-in-out;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -25px, 0);
   }
 }
