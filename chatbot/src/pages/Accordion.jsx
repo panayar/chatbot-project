@@ -3,14 +3,14 @@ import React from "react";
 const Accordion = () => {
   const accordionItems = {
     item1: {
-      title: "Revolutionizing Healthcare Education",
+      title: "Enhancing Emotional Well-being through Conversational Intelligence",
       content:
-        "Our intelligent conversational system is reshaping the way medical students at the University El Bosque approach the diagnosis of depression. By harnessing the power of AI, we're enabling a more intuitive and effective learning experience, preparing future healthcare professionals to address mental health challenges with empathy and precision.",
+        "Our conversational intelligence system is redefining how we address emotional well-being and healthcare education. By leveraging the capabilities of AI, we're ushering in a new era in healthcare and mental health awareness, empowering humans to navigate the complex landscape with empathy and precision.",
     },
     item2: {
       title: "Personalized Conversations, Personalized Learning",
       content:
-        "Our technology facilitates customized dialogues that adjust to each individual's needs. Students can practice their diagnostic and communication skills in a secure and controlled environment by having realistic conversations with simulated patients. It's a customized method of teaching medicine.",
+        "Our technology facilitates customized dialogues that adjust to each individual's needs. People can practice their diagnostic and communication skills in a secure and controlled environment by having realistic conversations with simulated patients. It's a customized method of supporting medicine.",
     },
     item3: {
       title: "Expertly Crafted AI Algorithms:",
