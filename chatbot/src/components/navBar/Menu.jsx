@@ -1,17 +1,20 @@
 import React from "react";
-import { Link } from 'wouter';
+import { Link } from "wouter";
+import { useSelector } from "react-redux";
 
 import Icon from "../../images/Icons/robot-icon.svg";
 import MenuIcon from "../../images/Icons/menu-icon.svg";
 import "./Menu.scss";
 
-const menuOptions = [
-  { label: "Home", href: "#home", isActive: true, router: false },
-  { label: "About Us", href: "#about", isActive: false, router: false },
-  { label: "Chat", href: "/chat", isActive: false, router: true },
-];
-
 const Menu = () => {
+  const userLog = useSelector((state) => state.user.isLoggedIn);
+  const log = userLog? "/chat" : "/login";
+
+  const menuOptions = [
+    { label: "Home", href: "#home", isActive: true, router: false },
+    { label: "About Us", href: "#about", isActive: false, router: false },
+    { label: "Chat", href: log, isActive: false, router: true },
+  ];
   return (
     <nav className="navbar">
       <div className="container-fluid">
@@ -52,11 +55,17 @@ const Menu = () => {
               {menuOptions.map((option, index) => (
                 <li className="nav-item" key={index}>
                   {option.router ? (
-                    <Link to={option.href} className={`nav-link ${option.isActive ? "active" : ""}`}>
+                    <Link
+                      to={option.href}
+                      className={`nav-link ${option.isActive ? "active" : ""}`}
+                    >
                       {option.label}
                     </Link>
                   ) : (
-                    <a className={`nav-link ${option.isActive ? "active" : ""}`} href={option.href}>
+                    <a
+                      className={`nav-link ${option.isActive ? "active" : ""}`}
+                      href={option.href}
+                    >
                       {option.label}
                     </a>
                   )}

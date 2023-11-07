@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Logo from "../../images/Icons/robot-icon.svg";
 import "./Forms.scss";
 import { Link } from "wouter";
+import { useDispatch } from "react-redux";
+import { login as setLog } from "../../redux/userSlice";
 import FormMenu from "../navBar/FormMenu";
 
 const Register = () => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,12 +53,39 @@ const Register = () => {
     // Update errors state
     setErrors(newErrors);
 
-    // TODO: Add registration logic here if no errors
     if (Object.keys(newErrors).length === 0) {
       console.log("Registration successful!");
       console.log("Username:", username);
       console.log("Email:", email);
       console.log("Password:", password);
+
+      createUser(username, email, password);
+    }
+  };
+
+  const createUser = async (username, email, password) => {
+    try {
+      const response = await fetch(
+        `https://conversemos-backend.onrender.com/user`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, email, password }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("User created successfully:", data);
+      dispatch(setLog({ isLoggedIn: true }));
+
+      return data;
+    } catch (error) {
+      console.error("Error creating user:", error);
+      throw error; // Rethrow the error for higher-level handling
     }
   };
 

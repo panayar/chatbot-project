@@ -10,10 +10,12 @@ import Clock from "../images/Icons/clock-icon.svg";
 import Arrow from "../images/Icons/half-arrow-icon.svg";
 import Robot from "../images/robot.svg";
 import "./Home.scss";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const userLog = useSelector((state) => state.user.isLoggedIn);
+
   return (
-    <>
       <div className="container home" id="home">
         <div className="row">
           <div className="col-lg-6 col-sm-12 col-md-6">
@@ -31,7 +33,7 @@ const Home = () => {
                 mental health tool.
               </p>
 
-              <Link className="link-text" to="/chat">
+              <Link className="link-text" to={userLog? "/chat" : "/login"}>
                 <span className="home-try-it-out">
                   Try it out{" "}
                   <button className="home-arrow-icon">
@@ -70,13 +72,14 @@ const Home = () => {
                           src={Clock}
                           alt="clock-icon"
                           className="clock-icon"
+                          style={{ marginRight: "5px" }}
                         />
                         1-2 minutes
                       </span>
                     </p>
                   </div>
                   <button className="home-purple-square-button">
-                    <Link className="link-text" to="/chat">
+                    <Link className="link-text" to={userLog? "/chat" : "/login"}>
                       Start Conversation
                     </Link>
                   </button>
@@ -98,7 +101,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

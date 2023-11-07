@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import Logo from "../../images/Icons/robot-icon.svg";
-import "./Forms.scss";
 import { Link } from "wouter";
+import { useDispatch } from "react-redux";
+import { login as setLog} from "../../redux/userSlice";
+
+import Logo from "../../images/Icons/robot-icon.svg";
 import FormMenu from "../navBar/FormMenu";
+import "./Forms.scss";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isAlertVisible, setIsAlertVisible] = useState(false);
@@ -29,6 +34,28 @@ const Login = () => {
 
     console.log("Email:", email);
     console.log("Password:", password);
+
+    login({ email, password });
+  };
+
+  const login = async (userData) => {
+    try {
+      const response = await fetch(
+        "https://conversemos-backend.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        }
+      );
+
+      const data = await response.json();
+      dispatch(setLog({ isLoggedIn: true, token: data.token }));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
