@@ -15,6 +15,8 @@ import { useSelector } from "react-redux";
 const Home = () => {
   const userLog = useSelector((state) => state.user.isLoggedIn);
 
+  console.log(userLog, "is LOGGED IN?")
+
   return (
       <div className="container home" id="home">
         <div className="row">

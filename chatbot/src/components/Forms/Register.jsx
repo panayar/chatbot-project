@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Logo from "../../images/Icons/robot-icon.svg";
 import "./Forms.scss";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { useDispatch } from "react-redux";
 import { login as setLog } from "../../redux/userSlice";
 import FormMenu from "../navBar/FormMenu";
@@ -13,6 +13,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [creation, setCreation] = useState(false);
+  const [, setLocation] = useLocation();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -60,6 +62,10 @@ const Register = () => {
       console.log("Password:", password);
 
       createUser(username, email, password);
+
+      if(creation){
+        setLocation("/chat");
+      }
     }
   };
 
@@ -80,6 +86,7 @@ const Register = () => {
 
       const data = await response.json();
       console.log("User created successfully:", data);
+      setCreation(true);
       dispatch(setLog({ isLoggedIn: true }));
 
       return data;
@@ -102,6 +109,11 @@ const Register = () => {
               </h2>
             </div>
             <div className="col-12 mt-4">
+              {creation && (
+                <div className="alert alert-success transition" role="alert">
+                  User created successfully!
+                </div>
+              )}
               <form onSubmit={handleSubmit}>
                 {Object.keys(errors).length > 0 && (
                   <div className="alert alert-warning" role="alert">
