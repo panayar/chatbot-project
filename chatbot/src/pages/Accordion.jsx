@@ -22,7 +22,7 @@ const Accordion = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{height: "60vh"}}>
         <div className="row">
           <div className="col-12">
             <span className="about-title">DESARROLLO</span>

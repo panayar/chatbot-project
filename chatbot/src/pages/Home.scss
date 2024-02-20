@@ -31,6 +31,17 @@
   }
 }
 
+
+.home-team-img {
+  & img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    padding: 1.5px;
+    border-radius: 100%;
+  }
+}
+
 .home-try-it-out {
   display: flex;
   align-items: center;
