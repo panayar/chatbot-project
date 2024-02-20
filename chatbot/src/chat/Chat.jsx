@@ -47,20 +47,24 @@ function Chat() {
   }, []);
 
   return (
-    <div className="chat">
-      <Navbar />
-      <SideMenu handleLogout={handleLogout} />
-      <section className="chatbox" ref={chatLogRef}>
-        <ChatLog messages={messages} />
-        <ChatInput
-          newMessage={newMessage}
-          handleSendMessage={handleSendMessage}
-          handleChange={(e) => setNewMessage(e.target.value)}
-          handleKeyPress={handleKeyPress}
-          chatInputRef={chatInputRef}
-        />
-      </section>
-    </div>
+    <>
+      <div className="background"></div>
+
+      <div className="chat">
+        <Navbar />
+        <SideMenu handleLogout={handleLogout} />
+        <section className="chatbox" ref={chatLogRef}>
+          <ChatLog messages={messages} />
+          <ChatInput
+            newMessage={newMessage}
+            handleSendMessage={handleSendMessage}
+            handleChange={(e) => setNewMessage(e.target.value)}
+            handleKeyPress={handleKeyPress}
+            chatInputRef={chatInputRef}
+          />
+        </section>
+      </div>
+    </>
   );
 }
 

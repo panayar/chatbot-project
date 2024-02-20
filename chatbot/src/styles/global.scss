@@ -34,11 +34,11 @@ $color-error-light: #ffd6d6;
 $color-white: #ffffff;
 $color-gray: #8f8f8f;
 
-$font-size-small: 1rem; /* Equivalent to 16px (standard base size) */
-$font-size-medium: 1.125rem; /* Slightly larger than base size */
-$font-size-large: 1.25rem; /* Larger than medium */
-$font-size-large-title: 2.25rem;
-$font-size-extra-large: 3rem; /* Substantially larger for emphasis */
+$font-size-small: 16px; 
+$font-size-medium: 18px; /* Slightly larger than base size (1.125 * 16) */
+$font-size-large: 20px; /* Larger than medium (1.25 * 16) */
+$font-size-large-title: 36px; /* 2.25 * 16 */
+$font-size-extra-large: 48px; /* Substantially larger for emphasis (3 * 16) */
 
 $font-weight-light: 300;
 $font-weight-regular: 400;

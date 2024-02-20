@@ -1,8 +1,8 @@
 import React from "react";
 import "./Members.scss";
-import Memoji1 from "../images/memoji1.svg";
-import Memoji2 from "../images/memoji2.svg";
-import Memoji3 from "../images/memoji3.svg";
+import Memoji1 from "../images/memoji-esteban.svg";
+import Memoji2 from "../images/memoji-paula.svg";
+import Memoji3 from "../images/memonji-cristian.svg";
 
 const Members = () => {
   return (
@@ -10,8 +10,8 @@ const Members = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12 titles col-sm-12 col-lg-12">
-            <span className="member-subtitle">ABOUT US</span>
-            <h1 className="member-title">Members</h1>
+            <span className="member-subtitle">SOBRE NOSOTROS</span>
+            <h1 className="member-title">Equipo</h1>
           </div>
         </div>
         <div className="row">

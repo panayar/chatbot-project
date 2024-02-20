@@ -3,19 +3,20 @@ import React from "react";
 const Accordion = () => {
   const accordionItems = {
     item1: {
-      title: "Enhancing Emotional Well-being through Conversational Intelligence",
+      title:
+        "Mejorando el Bienestar Emocional a través de la Inteligencia Conversacional",
       content:
-        "Our conversational intelligence system is redefining how we address emotional well-being and healthcare education. By leveraging the capabilities of AI, we're ushering in a new era in healthcare and mental health awareness, empowering humans to navigate the complex landscape with empathy and precision.",
+        "Nuestro sistema de inteligencia conversacional está redefiniendo cómo abordamos el bienestar emocional y la educación en salud. Al aprovechar las capacidades de la IA, estamos inaugurando una nueva era en la atención médica y la conciencia sobre la salud mental, capacitando a los humanos para navegar por el complejo panorama con empatía y precisión.",
     },
     item2: {
-      title: "Personalized Conversations, Personalized Learning",
+      title: "Conversaciones Personalizadas, Aprendizaje Personalizado",
       content:
-        "Our technology facilitates customized dialogues that adjust to each individual's needs. People can practice their diagnostic and communication skills in a secure and controlled environment by having realistic conversations with simulated patients. It's a customized method of supporting medicine.",
+        "Nuestra tecnología facilita diálogos personalizados que se ajustan a las necesidades de cada individuo. Las personas pueden practicar sus habilidades de diagnóstico y comunicación en un entorno seguro y controlado al tener conversaciones realistas con pacientes simulados. Es un método personalizado de apoyo a la medicina.",
     },
     item3: {
-      title: "Expertly Crafted AI Algorithms:",
+      title: "Algoritmos de IA Expresamente Elaborados:",
       content:
-        "Modern AI algorithms have been painstakingly built and included into our system. In addition to effectively simulating symptoms and behaviors, these algorithms offer insightful analysis and useful insights to support the diagnostic process. It is the fusion of knowledge and technology. ",
+        "Los modernos algoritmos de IA han sido construidos minuciosamente e incluidos en nuestro sistema. Además de simular eficazmente síntomas y comportamientos, estos algoritmos ofrecen un análisis perspicaz e ideas útiles para apoyar el proceso de diagnóstico. Es la fusión de conocimiento y tecnología.",
     },
   };
 
@@ -24,10 +25,10 @@ const Accordion = () => {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <span className="about-title">DEVELOPMENT</span>
+            <span className="about-title">DESARROLLO</span>
             <h2 className="mb-5 dev-title">
-              Elevating Emotional Well-being with <br />
-              Intelligent Conversations
+              Mejorando el Bienestar Emocional con <br></br>Conversaciones
+              Inteligentes
             </h2>
             <div className="accordion accordion-flush" id="accordion">
               {Object.keys(accordionItems).map((key, index) => (

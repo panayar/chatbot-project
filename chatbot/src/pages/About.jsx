@@ -12,20 +12,20 @@ const About = () => {
           </div>
           <div className="col-lg-6 col-sm-12 col-md-12 about-info">
             <div className="content">
-              <span className="about-title">ABOUT US</span>
+              <span className="about-title">SOBRE NOSOTROS</span>
               <h2>
-                Intelligent Conversational System for Emotional Well-being
+                Sistema Conversacional Inteligente para el Bienestar Emocional
               </h2>
               <p>
-                We've created a chatbot to detect signs of depression and
-                provide support. It utilizes advanced technology to interact
-                with users in a comprehensive manner and encourage seeking help
-                when needed. Our goal is to promote early detection and mental
-                health care.
+                Hemos creado un chatbot para detectar signos de depresión y
+                brindar apoyo. Utiliza tecnología avanzada para interactuar con
+                los usuarios de manera integral y fomentar la búsqueda de ayuda
+                cuando sea necesario. Nuestro objetivo es promover la detección
+                temprana y el cuidado de la salud mental.
               </p>
 
               <a href="#accordion">
-                <button className="about-button">MORE ABOUT US</button>
+                <button className="about-button">MÁS SOBRE NOSOTROS</button>
               </a>
             </div>
           </div>

@@ -1,9 +1,20 @@
 @import "../styles/global.scss";
 
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
 .chat {
   display: flex;
   text-align: center;
-  background-color: #111827;
   color: #111827;
   position: absolute;
   top: 0;
@@ -15,7 +26,6 @@
 .chatbox {
   flex: 1;
   height: 85vh;
-  background-color: #111827;
   position: relative;
   overflow-y: auto;
 }
@@ -25,7 +35,7 @@
 .sideMenu {
   width: 550px;
   padding: 10px;
-  background-color: #111827;
+  background-color: #020209;
   color: white;
 }
 
@@ -80,7 +90,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60vh;
+  width: 55vh;
   position: absolute;
   z-index: 1;
 }
@@ -177,8 +187,8 @@
 }
 
 .avatar {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
 
   & img {
     margin-left: 2px;
