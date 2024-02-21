@@ -136,7 +136,7 @@
   background-color: #374151;
   width: 50%;
   padding: 15px;
-  color: white;
+  color: rgb(159, 159, 159);
   font-size: 1, 25em;
   border-radius: $border-radius-medium;
   border: 2px solid rgba(65, 65, 65, 0.2);
@@ -145,6 +145,12 @@
 
   &::placeholder {
     color: #ffffffd3;
+  }
+
+  &:disabled {
+    &::placeholder {
+      color: #ffffff58;
+    }
   }
 }
 
@@ -170,7 +176,7 @@
 .chat-log {
   padding: 22px;
   text-align: left;
-  margin-top: 5%;
+  margin-top: 6%;
 }
 
 .chat-message.chatbot {
@@ -318,7 +324,6 @@
 
   border-radius: 15px;
 
-
   border: 2px solid #2b7996;
   background-color: #2b7996;
 
@@ -330,7 +335,6 @@
     transition: ease 0.25s all;
     background-color: #2b799670;
   }
-
 }
 
 .chatbot-informative-opt {
