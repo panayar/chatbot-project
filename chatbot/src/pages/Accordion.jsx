@@ -16,13 +16,26 @@ const Accordion = () => {
     item3: {
       title: "Algoritmos de IA Expresamente Elaborados:",
       content:
-        "Los modernos algoritmos de IA han sido construidos minuciosamente e incluidos en nuestro sistema. Además de simular eficazmente síntomas y comportamientos, estos algoritmos ofrecen un análisis perspicaz e ideas útiles para apoyar el proceso de diagnóstico. Es la fusión de conocimiento y tecnología.",
+        "Los modernos algoritmos de IA han sido meticulosamente construidos e integrados en nuestro sistema. Además de simular eficazmente síntomas y comportamientos, estos algoritmos proporcionan un análisis perspicaz e ideas útiles para respaldar el proceso. Es la fusión de conocimiento y tecnología.",
+    },
+    item4: {
+      title: "Chatbot Conversacional",
+      content:
+        "Nuestro chatbot conversacional de salud mental es tu compañero virtual para el bienestar emocional. Con una interfaz amigable y conversaciones empáticas, te ofrece apoyo instantáneo, herramientas prácticas y recursos útiles para gestionar la depresión.",
+    },
+    item5: {
+      title: "Chatbot Informativo",
+      content:
+        "Nuestro chatbot informativo sobre salud mental es tu fuente confiable de conocimiento y recursos para entender y abordar los desafíos relacionados con el bienestar emocional. Ofrece contenido diseñado para promover la conciencia, la comprensión y la acción en torno a la salud mental. Únete a nosotros en esta misión de cambio, donde cada visita a nuestro sitio es un paso hacia una comunidad más saludable y solidaria.",
     },
   };
 
   return (
     <>
-      <div className="container" style={{height: "60vh"}}>
+      <div
+        className="container mt-5"
+        style={{ height: "100%", marginBottom: "10%" }}
+      >
         <div className="row">
           <div className="col-12">
             <span className="about-title">DESARROLLO</span>

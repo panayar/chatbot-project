@@ -1,21 +1,16 @@
 @import "../styles/global.scss";
 
 .background {
-  width: 100%;
+  width: 50%;
   height: 100%;
   position: absolute;
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
-
-
 
 .chat {
   display: flex;
   text-align: center;
   color: #111827;
+  background-color: #020209;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -35,7 +30,8 @@
 .sideMenu {
   width: 550px;
   padding: 10px;
-  background-color: #020209;
+  border-radius: 0px 20px 20px 0px;
+  background-color: #19202b;
   color: white;
 }
 
@@ -116,7 +112,7 @@
   padding: 20px;
   text-align: center;
   color: white;
-  background-color: #111827;
+  background-color: #111827 !important;
   display: none;
   position: absolute;
   z-index: 1;
@@ -146,6 +142,10 @@
   border: 2px solid rgba(65, 65, 65, 0.2);
   outline: none;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+
+  &::placeholder {
+    color: #ffffffd3;
+  }
 }
 
 .send-button {
@@ -168,7 +168,7 @@
 // chat log and messsages styles
 
 .chat-log {
-  padding: 25px;
+  padding: 22px;
   text-align: left;
   margin-top: 5%;
 }
@@ -183,15 +183,16 @@
   margin-right: auto;
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 10px;
 }
 
 .avatar {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
 
   & img {
-    margin-left: 2px;
+    margin-left: -2px;
+    position: absolute;
     width: 30px;
     height: 30px;
   }
@@ -206,23 +207,27 @@
   border: 2px solid #1f2a37;
   border-radius: $border-radius-large;
   margin-left: 12px;
-  padding: 12px;
+  padding: 5px;
 }
 
 .message-container.chatbot {
   color: $color-primary;
   background-color: $color-tertiary;
   margin-left: 12px;
-  padding: 12px;
+  padding: 5px;
   border-radius: $border-radius-large;
 }
 
 .message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   color: white;
-  word-break: break-all;
+  margin-top: 10px;
+  word-break: break-word;
 }
 
 .message.chatbot {
@@ -236,27 +241,6 @@
   bottom: 0;
   font-size: 12px;
   margin-bottom: 0.5%;
-}
-
-// Responsive
-
-@media screen and (max-width: 1250px) {
-  .sideMenu {
-    display: none;
-  }
-
-  .nav-chat {
-    display: block;
-  }
-
-  .chat-input-textarea {
-    width: 80%;
-    margin-bottom: 8%;
-  }
-
-  .chat-log {
-    margin-top: 15%;
-  }
 }
 
 // Animations
@@ -305,5 +289,133 @@
   }
   50% {
     transform: translate3d(0, -25px, 0);
+  }
+}
+
+// chatbot Options
+
+.chatbot-options {
+  display: flex;
+  height: 10%;
+  position: fixed;
+  justify-content: center;
+  background-color: #020209;
+  z-index: 1;
+  align-items: center;
+  margin-top: -10px;
+}
+
+.chatbot-conversational-opt {
+  width: 20rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+
+  animation: fadeIn 2s ease forwards;
+  color: white;
+
+  border-radius: 15px;
+
+
+  border: 2px solid #2b7996;
+  background-color: #2b7996;
+
+  & h3 {
+    margin-top: 5px;
+  }
+
+  &:hover {
+    transition: ease 0.25s all;
+    background-color: #2b799670;
+  }
+
+}
+
+.chatbot-informative-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 20rem;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+
+  animation: fadeIn 2s ease forwards;
+  padding: 5px;
+
+  border: 2px solid #2b7996;
+  background-color: #2b7996;
+
+  & h3 {
+    margin-top: 5px;
+  }
+
+  &:hover {
+    transition: ease 0.25s all;
+    background-color: #2b799670;
+  }
+}
+
+.unselected-option {
+  border: none;
+  color: $color-gray;
+  background-color: #29292b5e;
+  :disabled {
+    background: #29292b5e;
+  }
+}
+
+.chat-opt-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+// Responsive
+
+@media screen and (max-width: 1250px) {
+  .sideMenu {
+    display: none;
+  }
+
+  .chatbot-options {
+    justify-self: center;
+
+    & div {
+      height: auto;
+    }
+  }
+
+  .nav-chat {
+    display: block;
+  }
+
+  .chat-input-textarea {
+    width: 80%;
+    margin-bottom: 8%;
+  }
+
+  .chat-log {
+    margin-top: 15%;
+  }
+
+  //chat options
+  .chatbot-options {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 752px) {
+  .chat-log {
+    margin-top: 150px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .chat-log {
+    margin-top: 35%;
   }
 }

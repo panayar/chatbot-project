@@ -15,13 +15,11 @@ import { useSelector } from "react-redux";
 const Home = () => {
   const userLog = useSelector((state) => state.user.isLoggedIn);
 
-  console.log(userLog, "is LOGGED IN?");
-
   return (
     <div className="container home" id="home">
       <div className="row">
         <div className="col-lg-6 col-sm-12 col-md-6">
-          <Menu />
+          <Menu  />
         </div>
       </div>
       <div className="row">

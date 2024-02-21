@@ -1,0 +1,81 @@
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/* Modal */
+.modal {
+    display: none; /* Por defecto oculto */
+    position: fixed; /* Fijar posición */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 9999; /* Por encima de otros elementos */
+    overflow: auto; /* Permitir desplazamiento si el contenido es demasiado grande */
+  }
+  
+  /* Animación de entrada */
+  .modal.fade.show {
+    display: block; /* Mostrar modal */
+    animation: fadeIn 0.3s ease;
+  }
+  
+  /* Animación de salida */
+  .modal.fade {
+    animation: fadeOut 0.3s ease forwards;
+  }
+  
+  /* Estilos del contenido del modal */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    animation: slideIn 0.3s ease;
+  }
+  
+  /* Cerrar botón del modal */
+  .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  

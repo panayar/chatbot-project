@@ -1,6 +1,7 @@
 import React from "react";
 import UserIcon from "../../images/Icons/chat-user-icon.svg";
 import RobotIcon from "../../images/Icons/chat-robot-icon.svg";
+import ReactMarkdown from "react-markdown";
 
 function ChatMessage({ message }) {
   return (
@@ -13,9 +14,15 @@ function ChatMessage({ message }) {
             alt={message.isUser ? "user-icon" : "robot-icon"}
           />
         </div>
-        <div className={`message-container ${message.isUser ? "user" : "chatbot"}`}>
-          <div className={`message ${message.isUser ? "user chat-message" : "chatbot chatbot-scale-in"}`}>
-            {message.text}
+        <div
+          className={`message-container ${message.isUser ? "user" : "chatbot"}`}
+        >
+          <div
+            className={`message ${
+              message.isUser ? "user chat-message" : "chatbot chatbot-scale-in"
+            }`}
+          >
+            <ReactMarkdown>{message.text}</ReactMarkdown>
           </div>
         </div>
       </div>

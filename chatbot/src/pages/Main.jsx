@@ -3,14 +3,16 @@ import Home from "./Home";
 import About from "./About";
 import Members from "./Members";
 import Accordion from "./Accordion";
+import Text from "./Text";
 
 const Main = () => {
   return (
     <>
       <Home />
-      <About />
       <Accordion />
-      <Members />
+      <Text/>
+      <About />
+      <Members /> 
     </>
   );
 };

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import Icon from "../../images/Icons/robot-icon.svg";
 import MenuIcon from "../../images/Icons/menu-icon.svg";
 import "./Menu.scss";
-
+ 
 const Menu = () => {
   const userLog = useSelector((state) => state.user.isLoggedIn);
   const log = userLog? "/chat" : "/login";
@@ -15,6 +15,7 @@ const Menu = () => {
     { label: "About Us", href: "#about", isActive: false, router: false },
     { label: "Chat", href: log, isActive: false, router: true },
   ];
+
   return (
     <nav className="navbar">
       <div className="container-fluid">

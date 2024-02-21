@@ -1,11 +1,11 @@
-import React, {  useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../images/Icons/robot-icon.svg";
 import { login } from "../../redux/userSlice";
 import { useLocation } from "wouter";
 import "./Forms.scss";
 import { Link } from "wouter";
 import FormMenu from "../navBar/FormMenu";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,12 +13,10 @@ const Login = () => {
   const [isAlertVisible, setIsAlertVisible] = useState(false);
 
   const [isLogged, setIsLogged] = useState(false);
-  const [token , setToken] = useState(null);
+  const [, setToken] = useState(null);
   const [error, setError] = useState(null);
 
   const [, setLocation] = useLocation();
-
-  const userLog = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleEmailChange = (e) => {
@@ -44,18 +42,12 @@ const Login = () => {
     }
 
     logUser({ email, password });
-
-    console.log(userLog, "is LOGGED IN? in login");
-
-    if (isLogged) {
-      setLocation("/chat");
-    }
   };
 
   const logUser = async (userData) => {
     try {
       const response = await fetch(
-        "https://conversemos-backend.onrender.com/login",
+        "https://conversemos-back-end.onrender.com/api/login",
         {
           method: "POST",
           headers: {
@@ -67,16 +59,28 @@ const Login = () => {
       );
 
       const data = await response.json();
-      setIsLogged(data.Token !== null ? true : false);
-      setError(data.Token === null ? true : false);
+
+      // Set states based on response
+      const isLoggedIn = data.Token !== null;
+      setIsLogged(isLoggedIn);
+      setError(!isLoggedIn);
       setToken(data.Token);
 
-      dispatch(login({ isLoggedIn: isLogged, token: token }));
-
+      // Dispatch login action with token and isLoggedIn
+      dispatch(login({ isLoggedIn, token: data.Token }));
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (isLogged) {
+      const timer = setTimeout(() => {
+        setLocation("/chat");
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  });
 
   return (
     <>

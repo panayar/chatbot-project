@@ -1,0 +1,12 @@
+@import "../styles/global.scss";
+
+.title {
+  font-weight: $font-weight-bold;
+  font-size: 35px ;
+  color: $color-purple;
+}
+
+.text {
+    font-size: $font-size-medium;
+    color: $color-gray;
+}

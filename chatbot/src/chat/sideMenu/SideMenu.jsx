@@ -26,9 +26,9 @@ function SideMenu({ handleLogout }) {
         <button className="btn-badge">Beta Version</button>
       </div>
       <img src={Robot} alt="robot-figure" className="robot-figure floating" />
-      <div className="side-menu-logout">
+      <div className="side-menu-logout" style={{ marginLeft: "-20px" }}>
         <button className="logout-button" onClick={handleLogout}>
-          Logout
+          Cerrar Sesión
           <img src={LogoutICon} alt="logoutIcon" />
         </button>
       </div>

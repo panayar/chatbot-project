@@ -6,7 +6,7 @@ import Memoji3 from "../images/memonji-cristian.svg";
 
 const Members = () => {
   return (
-    <div className="members" id="members" style={{height: "90vh"}}>
+    <div className="members" id="members" style={{height: "100%", marginBottom: "10%"}}>
       <div className="container">
         <div className="row">
           <div className="col-md-12 titles col-sm-12 col-lg-12">

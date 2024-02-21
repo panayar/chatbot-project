@@ -1,29 +1,47 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Chat.scss";
+import { useLocation } from "wouter";
 import Navbar from "./navbar/Navbar";
 import SideMenu from "./sideMenu/SideMenu";
 import ChatLog from "./chatLog/ChatLog";
 import ChatInput from "./chatInput/ChatInput";
+import Modal from "../components/Modal/Modal";
+
+import { login } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
+import ChatOption from "./chatOption/ChatOption";
 
 function Chat() {
-  const [messages, setMessages] = useState([
-    {
-      text: "Hi there! I'm Adda, how can I help you?",
-      isUser: false,
-    },
-  ]);
+  // Redux
+  const [, setLocation] = useLocation();
+  const dispatch = useDispatch();
+
+  // Manejo de mensajes
+  const [messages, setMessages] = useState([{
+    text: "¡Hola! Soy tu chatbot. ¡Bienvenido a esta experiencia! Aquí, tenemos dos opciones para ti. Si deseas conversar, selecciona **Chatbot Conversacional**; si prefieres obtener información sobre la depresión, elige **Chat Informativo**. ¡Estoy aquí para ayudarte en lo que necesites!",
+    isUser: false,
+  }]);
   const [newMessage, setNewMessage] = useState("");
+  const [chatOption, setChatOption] = useState("");
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false); // Estado para controlar la visibilidad del modal
   const chatInputRef = useRef(null);
   const chatLogRef = useRef(null);
 
+  // Modal de Cerrar Sesión
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [firstTimeOptionSelect, setFirstTimeOptionSelect] = useState(true);
+  const [inputDisabled, setInputDisabled] = useState(true);
+
+  //user send message
   const handleSendMessage = () => {
-    if (newMessage.trim() !== "") {
-      const userMessage = { text: newMessage, isUser: true };
-      setMessages([...messages, userMessage]);
-      setNewMessage("");
-      chatInputRef.current.focus();
-      scrollToBottom();
-    }
+    if (newMessage.trim() === "") return;
+
+    const userMessage = { text: newMessage, isUser: true };
+    setMessages([...messages, userMessage]);
+    setNewMessage("");
+
+    chatInputRef.current.focus();
+    scrollToBottom();
   };
 
   const handleKeyPress = (e) => {
@@ -38,24 +56,111 @@ function Chat() {
   };
 
   const handleLogout = () => {
-    window.location.reload();
+    setShowLogoutModal(true);
+  };
+
+  const confirmLogout = () => {
+    const isLogged = false;
+    setLocation("/");
+    // Dispatch login action with token and isLoggedIn
+    dispatch(login({ isLogged, token: "" }));
+    setShowLogoutModal(false);
+  };
+
+  //select chat option
+  const handleChatOption = ({ option }) => {
+    const chatMessages = {
+      conversational: [
+        { text: "¡Hola! Soy tu chatbot conversacional.", isUser: false },
+        { text: `Para iniciar el chat por favor di "Hola"`, isUser: false },
+      ],
+      informative: [
+        { text: "¡Hola! Soy tu chatbot informativo.", isUser: false },
+      ],
+    };
+    const addNewMessage = (newMessage) => {
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
+    };
+
+    const resetMessages = () => {
+      setMessages([]);
+    };
+
+    setChatOption(option);
+
+    if (firstTimeOptionSelect) {
+      setInputDisabled(false);
+      setFirstTimeOptionSelect(false);
+      resetMessages();
+
+      const messages = chatMessages[option];
+      messages.forEach((message, index) => {
+        setTimeout(() => {
+          addNewMessage(message);
+        }, index * 1000);
+      });
+    } else {
+      if (option !== chatOption) {
+        setShowConfirmationModal(true);
+      } else {
+        resetMessages();
+
+        const messages = chatMessages[option];
+        messages.forEach((message, index) => {
+          setTimeout(() => {
+            addNewMessage(message);
+          }, index * 1000);
+        });
+      }
+    }
   };
 
   useEffect(() => {
     chatInputRef.current.focus();
     scrollToBottom();
-  }, []);
+  }, [scrollToBottom]);
 
   return (
     <>
-      <div className="background"></div>
-
       <div className="chat">
-        <Navbar />
+        <Navbar handleClick={handleChatOption} />
         <SideMenu handleLogout={handleLogout} />
         <section className="chatbox" ref={chatLogRef}>
+          <p
+            className={`mt-4  ${!firstTimeOptionSelect ? "d-none" : ""}`}
+            style={{ color: "white" , fontWeight: "bold", fontSize: "1.5rem"}}
+          >
+            Selecciona una opción
+          </p>
+          <div className="chatbot-options container">
+            <div className="row">
+              <div className="col-lg-6 col-sm-12">
+                <ChatOption
+                  option="conversational"
+                  title="Chatbot Conversacional"
+                  description="Un chatbot conversacional que simula una conversación con un terapeuta."
+                  selectedOption={chatOption}
+                  handleChatOption={() =>
+                    handleChatOption({ option: "conversational" })
+                  }
+                />
+              </div>
+              <div className="col-lg-6 col-sm-12">
+                <ChatOption
+                  option="informative"
+                  title="Chatbot Informativo"
+                  description="Un chatbot que proporciona información sobre la depresión y recursos para su tratamiento."
+                  selectedOption={chatOption}
+                  handleChatOption={() =>
+                    handleChatOption({ option: "informative" })
+                  }
+                />
+              </div>
+            </div>
+          </div>
           <ChatLog messages={messages} />
           <ChatInput
+            disabled={inputDisabled}
             newMessage={newMessage}
             handleSendMessage={handleSendMessage}
             handleChange={(e) => setNewMessage(e.target.value)}
@@ -64,6 +169,28 @@ function Chat() {
           />
         </section>
       </div>
+
+      {/* Modal de logout  */}
+      <Modal
+        title="Cerrar Sesión"
+        body="¿Estás seguro de cerrar sesión?"
+        onSave={confirmLogout}
+        onCancel={() => setShowLogoutModal(false)}
+        show={showLogoutModal}
+      />
+
+      {/* Modal de confirmación para cambiar de opción */}
+      <Modal
+        title="Cambiar de Opción"
+        body="¿Estás seguro de cambiar de opción? Todos los mensajes actuales se perderán."
+        onSave={() => {
+          setChatOption(chatOption); // Cambia la opción del chat
+          setShowConfirmationModal(false);
+          handleChatOption({ option: chatOption });
+        }}
+        onCancel={() => setShowConfirmationModal(false)}
+        show={showConfirmationModal}
+      />
     </>
   );
 }
