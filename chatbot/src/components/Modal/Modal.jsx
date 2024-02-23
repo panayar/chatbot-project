@@ -29,7 +29,7 @@ function Modal({ title, body, onSave, onCancel, show }) {
                 </button>
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-primary"
                   onClick={onSave}
                 >
                   Aceptar
