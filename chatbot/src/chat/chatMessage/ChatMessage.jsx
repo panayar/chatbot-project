@@ -8,11 +8,9 @@ function ChatMessage({ message }) {
     <div className={`chat-message ${message.isUser ? "user" : "chatbot"}`}>
       <div className="chat-message-center">
         <div className={`avatar ${message.isUser ? "d-none" : "robot"}`}>
-          <img
-            src={!message.isUser ? RobotIcon : "d-none"}
-            className={"robot-icon"}
-            alt={"robot-icon"}
-          />
+          {!message.isUser && (
+            <img src={RobotIcon} className="robot-icon" alt="robot-icon" />
+          )}
         </div>
         <div
           className={`message-container ${message.isUser ? "user" : "chatbot"}`}
@@ -22,16 +20,16 @@ function ChatMessage({ message }) {
               message.isUser ? "user chat-message" : "chatbot chatbot-scale-in"
             }`}
           >
-            <ReactMarkdown>{message.text}</ReactMarkdown>
+            <p>
+              <ReactMarkdown>{message.text}</ReactMarkdown>
+            </p>
           </div>
         </div>
 
         <div className={`avatar ${!message.isUser ? "d-none" : "user"}`}>
-          <img
-            src={message.isUser ? UserIcon : "d-none"}
-            className={"user-icon"}
-            alt={"user-icon"}
-          />
+          {message.isUser && (
+            <img src={UserIcon} className="user-icon" alt="user-icon" />
+          )}
         </div>
       </div>
     </div>

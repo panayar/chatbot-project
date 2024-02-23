@@ -19,7 +19,7 @@ function Chat() {
   // Manejo de mensajes
   const [messages, setMessages] = useState([
     {
-      text: "¡Hola! Soy tu chatbot. ¡Bienvenido a esta experiencia! Aquí, tenemos dos opciones para ti. Si deseas conversar, selecciona **Chatbot Conversacional**; si prefieres obtener información sobre la depresión, elige **Chat Informativo**. ¡Estoy aquí para ayudarte en lo que necesites!",
+      text: "¡Hola! Soy tu chatbot. ¡Bienvenido a esta experiencia! Aquí, tenemos dos opciones para ti. Si deseas conversar, selecciona **Chatbot Conversacional**; si prefieres obtener información sobre la depresión, elige **Chat Informativo**.¡Estoy aquí para ayudarte en lo que necesites!",
       isUser: false,
     },
   ]);
@@ -74,7 +74,8 @@ function Chat() {
 
         const data = await response.text();
         const dataJson = JSON.parse(data);
-        const reply = dataJson.recomendation;
+        const reply =
+          dataJson.pregunta || dataJson.recomendation || dataJson.ChatBot;
 
         const replyMessage = { text: reply, isUser: false };
         setMessages((prevMessages) => [...prevMessages, replyMessage]);
@@ -85,8 +86,13 @@ function Chat() {
     }
 
     if (chatType === "informative") {
-      const formData = new FormData();
-      formData.append("message", message);
+      const userMessageInformative = {
+        message: message,
+      };
+
+      //handle loading
+      handleLoading({ gotReply: false });
+
       try {
         const response = await fetch(
           "https://conversemos-back-end.onrender.com/api/chatbot",
@@ -97,13 +103,17 @@ function Chat() {
               "Access-Control-Allow-Origin": "*",
               Authorization: `Bearer ${userToken}`,
             },
-            body: formData,
+            body: JSON.stringify(userMessageInformative),
           }
         );
 
         const data = await response.text();
+        console.log(data, "data");
         const dataJson = JSON.parse(data);
-        const reply = dataJson.recomendation;
+        var reply =
+          dataJson.message?.response?.texto || dataJson.message?.error;
+
+        console.log(reply, "reply");
 
         const replyMessage = { text: reply, isUser: false };
         setMessages((prevMessages) => [...prevMessages, replyMessage]);
@@ -111,7 +121,6 @@ function Chat() {
       } catch (error) {
         console.log(error);
       }
-    
     }
   };
 

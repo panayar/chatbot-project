@@ -205,7 +205,6 @@
   }
 }
 
-
 .avatar.user {
   width: 30px;
   height: 30px;
@@ -218,7 +217,6 @@
   }
 }
 
-
 .message-container {
   max-width: 90%;
 }
@@ -227,11 +225,16 @@
   border: 2px solid #1f2a37;
   border-radius: $border-radius-large;
   margin-left: auto;
-  background-color: #151C2C;
+  background-color: #151c2c;
   padding: 5px;
   margin-right: 12px;
-}
 
+  & p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 8px;
+  }
+}
 
 .message-container.chatbot {
   color: $color-primary;
@@ -239,6 +242,12 @@
   margin-left: 12px;
   padding: 5px;
   border-radius: $border-radius-large;
+
+  & p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 8px;
+  }
 }
 
 .message {
