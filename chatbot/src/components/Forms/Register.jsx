@@ -62,10 +62,6 @@ const Register = () => {
       console.log("Password:", password);
 
       createUser(username, email, password);
-
-      if(creation){
-        setLocation("/chat");
-      }
     }
   };
 
@@ -87,6 +83,9 @@ const Register = () => {
       const data = await response.json();
       console.log("User created successfully:", data);
       setCreation(true);
+      setTimeout(() => {
+        setLocation("/login");
+      }, 2000);
       dispatch(setLog({ isLoggedIn: true }));
 
       return data;
