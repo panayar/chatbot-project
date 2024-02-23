@@ -8,7 +8,7 @@ import ChatInput from "./chatInput/ChatInput";
 import Modal from "../components/Modal/Modal";
 
 import { login } from "../redux/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ChatOption from "./chatOption/ChatOption";
 
 function Chat() {
@@ -17,10 +17,12 @@ function Chat() {
   const dispatch = useDispatch();
 
   // Manejo de mensajes
-  const [messages, setMessages] = useState([{
-    text: "¡Hola! Soy tu chatbot. ¡Bienvenido a esta experiencia! Aquí, tenemos dos opciones para ti. Si deseas conversar, selecciona **Chatbot Conversacional**; si prefieres obtener información sobre la depresión, elige **Chat Informativo**. ¡Estoy aquí para ayudarte en lo que necesites!",
-    isUser: false,
-  }]);
+  const [messages, setMessages] = useState([
+    {
+      text: "¡Hola! Soy tu chatbot. ¡Bienvenido a esta experiencia! Aquí, tenemos dos opciones para ti. Si deseas conversar, selecciona **Chatbot Conversacional**; si prefieres obtener información sobre la depresión, elige **Chat Informativo**. ¡Estoy aquí para ayudarte en lo que necesites!",
+      isUser: false,
+    },
+  ]);
   const [newMessage, setNewMessage] = useState("");
   const [chatOption, setChatOption] = useState("");
   const [showConfirmationModal, setShowConfirmationModal] = useState(false); // Estado para controlar la visibilidad del modal
@@ -32,6 +34,9 @@ function Chat() {
   const [firstTimeOptionSelect, setFirstTimeOptionSelect] = useState(true);
   const [inputDisabled, setInputDisabled] = useState(true);
 
+  //user token
+  const userToken = useSelector((state) => state.user.token);
+
   //user send message
   const handleSendMessage = () => {
     if (newMessage.trim() === "") return;
@@ -42,6 +47,82 @@ function Chat() {
 
     chatInputRef.current.focus();
     scrollToBottom();
+
+    handleChatReply({ message: newMessage, chatType: chatOption });
+  };
+
+  const handleChatReply = async ({ message, chatType }) => {
+    const messageJson = {
+      question: message,
+    };
+
+    if (chatType === "conversational") {
+      //consume chatbot service
+      try {
+        const response = await fetch(
+          "https://conversemos-back-end.onrender.com/api/chatbotDetection",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              Authorization: `Bearer ${userToken}`,
+            },
+            body: JSON.stringify(messageJson),
+          }
+        );
+
+        const data = await response.text();
+        const dataJson = JSON.parse(data);
+        const reply = dataJson.recomendation;
+
+        const replyMessage = { text: reply, isUser: false };
+        setMessages((prevMessages) => [...prevMessages, replyMessage]);
+        scrollToBottom();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (chatType === "informative") {
+      const formData = new FormData();
+      formData.append("message", message);
+      try {
+        const response = await fetch(
+          "https://conversemos-back-end.onrender.com/api/chatbot",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+              Authorization: `Bearer ${userToken}`,
+            },
+            body: formData,
+          }
+        );
+
+        const data = await response.text();
+        const dataJson = JSON.parse(data);
+        const reply = dataJson.recomendation;
+
+        const replyMessage = { text: reply, isUser: false };
+        setMessages((prevMessages) => [...prevMessages, replyMessage]);
+        scrollToBottom();
+      } catch (error) {
+        console.log(error);
+      }
+    
+    }
+  };
+
+  const handleLoading = ({ gotReply }) => {
+    const loadingMessage = { text: "Espera un momento...", isUser: false };
+    setMessages((prevMessages) => [...prevMessages, loadingMessage]);
+    scrollToBottom();
+
+    if (gotReply) {
+      setMessages((prevMessages) => prevMessages.slice(0, -1));
+    }
   };
 
   const handleKeyPress = (e) => {
@@ -128,10 +209,11 @@ function Chat() {
         <section className="chatbox" ref={chatLogRef}>
           <p
             className={`mt-4  ${!firstTimeOptionSelect ? "d-none" : ""}`}
-            style={{ color: "white" , fontWeight: "bold", fontSize: "1.5rem"}}
+            style={{ color: "white", fontWeight: "bold", fontSize: "1.5rem" }}
           >
             Selecciona una opción
           </p>
+
           <div className="chatbot-options container">
             <div className="row">
               <div className="col-lg-6 col-sm-12">
@@ -186,9 +268,24 @@ function Chat() {
         onSave={() => {
           setChatOption(chatOption); // Cambia la opción del chat
           setShowConfirmationModal(false);
-          handleChatOption({ option: chatOption });
+          setTimeout(() => {
+            handleChatOption({
+              option:
+                chatOption === "conversational"
+                  ? "conversational"
+                  : "informative",
+            });
+          }, 1);
         }}
-        onCancel={() => setShowConfirmationModal(false)}
+        onCancel={() => {
+          handleChatOption({
+            option:
+              chatOption === "conversational"
+                ? "informative"
+                : "conversational",
+          });
+          setShowConfirmationModal(false);
+        }}
         show={showConfirmationModal}
       />
     </>

@@ -6,7 +6,7 @@ function ChatOption({ option, title, description, selectedOption, handleChatOpti
     <div
       data-toggle="tooltip" data-placement="bottom" title="Tooltip on top"
       className={`chatbot-${option}-opt ${
-        selectedOption === option ? "selected-option" : selectedOption === "" ? "" : "unselected-option"
+        selectedOption === option ? "selected-option disable-option" : selectedOption === "" ? "" : "unselected-option"
       }`}
       onClick={() => handleChatOption({ option })}
     >
