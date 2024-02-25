@@ -38,7 +38,7 @@ const Menu = () => {
 
   const confirmLogout = () => {
     const isLogged = false;
-    setLocation("/Chatbot-Project");
+    setLocation("/");
     // Dispatch login action with token and isLoggedIn
     dispatch(login({ isLogged, token: "" }));
     setShowLogoutModal(false);
@@ -110,7 +110,7 @@ const Menu = () => {
               </ul>
             </div>
           </div>
-          <Link to="/Chatbot-Project" className="navbar-brand menu-title">
+          <Link to="/" className="navbar-brand menu-title">
             ADDA CHAT
             <img
               src={Icon}
