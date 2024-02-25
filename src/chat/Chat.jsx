@@ -38,6 +38,11 @@ function Chat() {
   //user token
   const userToken = useSelector((state) => state.user.token);
 
+  window.addEventListener('beforeunload', function (event) {
+    // Redirigir a la página principal al recargar la página
+    event.preventDefault();
+  });
+
   //user send message
   const handleSendMessage = () => {
     if (newMessage.trim() === "") return;
@@ -55,6 +60,10 @@ function Chat() {
   const handleChatReply = async ({ message, chatType }) => {
     const messageJson = {
       question: message,
+    };
+
+    const deleteLoadingMessage = () => {
+      setMessages((prevMessages) => prevMessages.slice(0, -1));
     };
 
     if (chatType === "conversational") {
@@ -91,8 +100,7 @@ function Chat() {
         message: message,
       };
 
-      //handle loading
-      handleLoading({ gotReply: false });
+      handleLoading();
 
       try {
         const response = await fetch(
@@ -110,6 +118,7 @@ function Chat() {
 
         const data = await response.text();
         const dataJson = JSON.parse(data);
+        deleteLoadingMessage();
         var reply =
           dataJson.message?.response?.texto || dataJson.message?.error;
 
@@ -122,14 +131,10 @@ function Chat() {
     }
   };
 
-  const handleLoading = ({ gotReply }) => {
+  const handleLoading = () => {
     const loadingMessage = { text: "Espera un momento...", isUser: false };
     setMessages((prevMessages) => [...prevMessages, loadingMessage]);
     scrollToBottom();
-
-    if (gotReply) {
-      setMessages((prevMessages) => prevMessages.slice(0, -1));
-    }
   };
 
   const handleKeyPress = (e) => {

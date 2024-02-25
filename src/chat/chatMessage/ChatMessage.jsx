@@ -20,9 +20,7 @@ function ChatMessage({ message }) {
               message.isUser ? "user chat-message" : "chatbot chatbot-scale-in"
             }`}
           >
-            <p>
-              <ReactMarkdown>{message.text}</ReactMarkdown>
-            </p>
+            <ReactMarkdown>{message.text}</ReactMarkdown>
           </div>
         </div>
 

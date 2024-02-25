@@ -147,11 +147,16 @@
   }
 }
 
+.robot-container{
+  position: relative;
+}
+
 .robot-img {
   z-index: 1;
-  position: absolute;
-  width: 85vh;
-  margin-top: -40px;
+  width: 110%;
+  position: absolute; /* Fija la posición absoluta */
+  top: 0; /* Fija la distancia desde la parte superior del contenedor */
+  left: 0; /* Fija la distancia desde el borde izquierdo del contenedor */
 }
 
 @media (max-width: 990px) {
@@ -178,6 +183,12 @@
 .link {
   text-decoration: none;
   color: $color-white;
+}
+
+
+@media (max-width: 1280px) {
+
+  
 }
 
 

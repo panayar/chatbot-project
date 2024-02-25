@@ -1,5 +1,5 @@
 import React from "react";
-import AboutImage from "../images/about-img.svg";
+import AboutImage from "../images/about.png";
 import "./About.scss";
 
 const About = () => {

@@ -103,8 +103,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        <div className="col-lg-6 d-sm-none d-lg-block">
+        <div className="col-lg-6 d-sm-none d-md-none d-lg-block  robot-container">
           <img className="robot-img" src={Robot} alt="robot"></img>
         </div>
       </div>
