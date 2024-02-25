@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://conversemos-backend.onrender.com/login",
-  "homepage": "https://addachatbot.online/",
+  "homepage": "https://panayar.github.io/Chatbot-Project",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "cors": "^2.8.5",
