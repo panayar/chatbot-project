@@ -8,7 +8,7 @@ const FormMenu = () => {
     <div className="container-fluid ">
       <div className="row">
         <div className="col-12 mt-2 text-center">
-          <Link to="/" className="navbar-brand menu-title">
+          <Link to="/Chatbot-Project" className="navbar-brand menu-title">
             ADDA CHAT
             <img
               style={{ marginLeft: "12px" }}

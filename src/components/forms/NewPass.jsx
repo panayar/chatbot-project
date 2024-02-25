@@ -60,7 +60,7 @@ const NewPass = () => {
 
                 {success ? (
                   <div className="alert  alert-success" role="alert">
-                    Password reset successful. <a href="/">Go Back</a>
+                    Password reset successful. <a href="/Chatbot-Project">Go Back</a>
                   </div>
                 ) : (
                   <>

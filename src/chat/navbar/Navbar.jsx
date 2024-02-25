@@ -5,7 +5,7 @@ import Icon from "../../images/Icons/robot-icon.svg";
 function Navbar({ handleClick }) {
   return (
     <nav className="nav-chat">
-      <Link to="/" className="navbar-brand menu-title">
+      <Link to="/Chatbot-Project" className="navbar-brand menu-title">
         <img
           style={{ marginLeft: "10px", width: "30px" }}
           src={Icon}

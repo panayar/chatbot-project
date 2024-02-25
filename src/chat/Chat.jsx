@@ -149,7 +149,7 @@ function Chat() {
 
   const confirmLogout = () => {
     const isLogged = false;
-    setLocation("/");
+    setLocation("/Chatbot-Project");
     // Dispatch login action with token and isLoggedIn
     dispatch(login({ isLogged, token: "" }));
     setShowLogoutModal(false);
