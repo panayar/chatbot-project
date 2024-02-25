@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useRef, useEffect } from "react";
 import "./Chat.scss";
 import { useLocation } from "wouter";
@@ -108,12 +109,9 @@ function Chat() {
         );
 
         const data = await response.text();
-        console.log(data, "data");
         const dataJson = JSON.parse(data);
         var reply =
           dataJson.message?.response?.texto || dataJson.message?.error;
-
-        console.log(reply, "reply");
 
         const replyMessage = { text: reply, isUser: false };
         setMessages((prevMessages) => [...prevMessages, replyMessage]);
