@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Chatbot-Project/static/css/main.6056c50c.css",
-    "main.js": "/Chatbot-Project/static/js/main.41311fa3.js",
+    "main.js": "/Chatbot-Project/static/js/main.ef91ff69.js",
     "static/media/about-img.svg": "/Chatbot-Project/static/media/about-img.8697641c3a55471dcef314dfab496ba6.svg",
     "static/media/robot-figure.svg": "/Chatbot-Project/static/media/robot-figure.8dafa27fe78017adcc51da872f335f75.svg",
     "static/media/memoji-esteban.svg": "/Chatbot-Project/static/media/memoji-esteban.ecdf19836e5fe4841ad409ef14a3b720.svg",
@@ -22,10 +22,10 @@
     "static/media/arrow.svg": "/Chatbot-Project/static/media/arrow.ff091e10618db7a779ec4997abad93b0.svg",
     "static/media/half-arrow-icon.svg": "/Chatbot-Project/static/media/half-arrow-icon.1c76a4e04cc1f072d4b8d2b072407e80.svg",
     "main.6056c50c.css.map": "/Chatbot-Project/static/css/main.6056c50c.css.map",
-    "main.41311fa3.js.map": "/Chatbot-Project/static/js/main.41311fa3.js.map"
+    "main.ef91ff69.js.map": "/Chatbot-Project/static/js/main.ef91ff69.js.map"
   },
   "entrypoints": [
     "static/css/main.6056c50c.css",
-    "static/js/main.41311fa3.js"
+    "static/js/main.ef91ff69.js"
   ]
 }
