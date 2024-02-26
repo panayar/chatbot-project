@@ -5,7 +5,7 @@ function ChatInput({ newMessage, handleSendMessage, handleChange, handleKeyPress
   return (
     <div className="chat-input-holder">
       <div className="chat-input-holder-fixed">
-        <input
+        <input 
           disabled={disabled}
           rows="1"
           className="chat-input-textarea"

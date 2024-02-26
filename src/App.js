@@ -11,10 +11,10 @@ import VerifyOTPCode from "./components/forms/VerifyOTPCode";
 import Chat from "./chat/Chat";
 import Main from "./pages/Main";
 
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 function App() {
-  const userLog = useSelector((state) => state.user);
+  // const userLog = useSelector((state) => state.user);
 
   return (
     <div className="container-fluid">
@@ -24,7 +24,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/forgotpass" component={ForgotPass} />
         <Route path="/newpass" component={NewPass} />
-        {userLog.isLoggedIn && <Route path="/chat" component={Chat} />}
+        <Route path="/chat" component={Chat} />
         <Route path="/verifyOTP" component={VerifyOTPCode} />
       </Router>
     </div>

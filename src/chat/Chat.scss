@@ -82,14 +82,13 @@
   }
 }
 
+.robot-container {
+  position: relative;
+}
+
 .robot-figure {
-  margin-top: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 55vh;
-  position: absolute;
-  z-index: 1;
+  margin-top: 40%;
+  width: 90%;
 }
 
 .btn-badge {
@@ -134,7 +133,7 @@
 }
 
 .chat-input-textarea {
-  background-color: #374151;
+  background-color: #464c55;
   width: 50%;
   padding: 15px;
   color: rgb(159, 159, 159);
@@ -146,6 +145,10 @@
 
   &::placeholder {
     color: #ffffffd3;
+  }
+
+  &:focus {
+    color: white;
   }
 
   &:disabled {
@@ -168,6 +171,8 @@
 .chat-input-holder-fixed {
   width: 100%;
   margin-bottom: 2%;
+  margin-top: 10px;
+  background-color: #020209;
   position: fixed;
   bottom: 0;
 }
