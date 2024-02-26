@@ -1,4 +1,4 @@
-# ADDA CHATBOT 🤖
+# Adda Chatbot 🤖
 
 ![image1](https://github.com/panayar/Chatbot-Project/assets/71273441/84de2bc0-7795-4494-89e0-acac43cc70f4)
 ![image2](https://github.com/panayar/Chatbot-Project/assets/71273441/e0d74490-cf38-4aae-9523-fd00a814b797)
