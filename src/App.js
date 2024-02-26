@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="container-fluid">
       <Router>
-        <Route path="/chatbot-project" component={Main} />
+        <Route path="/" component={Main} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/forgotpass" component={ForgotPass} />

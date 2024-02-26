@@ -153,7 +153,7 @@ function Chat() {
 
   const confirmLogout = () => {
     const isLogged = false;
-    setLocation("/chatbot-project");
+    setLocation("/");
     // Dispatch login action with token and isLoggedIn
     dispatch(login({ isLoggedIn: isLogged, token: "" }));
     localStorage.setItem("userToken", "");
