@@ -40,9 +40,6 @@ function Chat() {
 
   window.addEventListener("beforeunload", function (event) {
     event.preventDefault();
-    //save token in localhost
-
-    localStorage.setItem("userToken", userToken);
   });
 
   //user send message
@@ -152,16 +149,14 @@ function Chat() {
 
   const handleLogout = () => {
     setShowLogoutModal(true);
-    localStorage.setItem("userToken", "");
   };
 
   const confirmLogout = () => {
     const isLogged = false;
     setLocation("/");
     // Dispatch login action with token and isLoggedIn
-    dispatch(login({ isLogged, token: "" }));
+    dispatch(login({ isLoggedIn: isLogged, token: "" }));
     localStorage.setItem("userToken", "");
-    localStorage.setItem("isLoggedIn", false);
     setShowLogoutModal(false);
   };
   //select chat option
@@ -213,14 +208,25 @@ function Chat() {
   };
 
   useEffect(() => {
-    const localToken = localStorage.getItem("userToken");
-    if (localToken) {
-      dispatch(login({ isLoggedIn: true, token: localToken }));
-    }
-
     chatInputRef.current.focus();
     scrollToBottom();
+    closeSessionAfterSomeTime();
   }, [scrollToBottom]);
+
+  const closeSessionAfterSomeTime = () => {
+    const TIMEOUT_DURATION = 600000; // 5 minutos en milisegundos
+
+    setTimeout(() => {
+      localStorage.setItem("userToken", "");
+      const isLogged = false;
+      setLocation("/");
+      // Dispatch login action with token and isLoggedIn
+      dispatch(login({ isLoggedIn: isLogged, token: "" }));
+      console.log(
+        "La sesión ha sido cerrada automáticamente debido a inactividad."
+      );
+    }, TIMEOUT_DURATION);
+  };
 
   return (
     <>

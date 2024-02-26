@@ -12,17 +12,26 @@ import Chat from "./chat/Chat";
 import Main from "./pages/Main";
 
 import { login } from "./redux/userSlice";
-
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 function App() {
   const dispatch = useDispatch();
-  const localToken = localStorage.getItem("userToken");
   const userLog = useSelector((state) => state.user);
 
-  if (localToken !== "") {
-    dispatch(login({ isLoggedIn: true, token: localToken }));
-  }
+  console.log(userLog, userLog.isLoggedIn, "APP");
+
+  const userTokenLocalStorage = localStorage.getItem("userToken");
+
+  useEffect(() => {
+    if (userTokenLocalStorage !== null && userTokenLocalStorage !== "") {
+      dispatch(login({ isLoggedIn: true, token: userTokenLocalStorage }));
+    } else {
+      console.log("el usuario cerro sesion");
+    }
+
+    // eslint-disable-next-line
+  }, [userTokenLocalStorage]);
 
   return (
     <div className="container-fluid">

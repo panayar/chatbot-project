@@ -13,7 +13,6 @@ const Login = () => {
   const [isAlertVisible, setIsAlertVisible] = useState(false);
 
   const [isLogged, setIsLogged] = useState(false);
-  const [, setToken] = useState(null);
   const [error, setError] = useState(null);
 
   const [, setLocation] = useLocation();
@@ -64,10 +63,10 @@ const Login = () => {
       const isLoggedIn = data.Token !== null;
       setIsLogged(isLoggedIn);
       setError(!isLoggedIn);
-      setToken(data.Token);
 
       // Dispatch login action with token and isLoggedIn
       dispatch(login({ isLoggedIn, token: data.Token }));
+      localStorage.setItem("userToken", data.Token);
     } catch (error) {
       console.log(error);
     }
