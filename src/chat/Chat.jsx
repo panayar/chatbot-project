@@ -38,9 +38,11 @@ function Chat() {
   //user token
   const userToken = useSelector((state) => state.user.token);
 
-  window.addEventListener('beforeunload', function (event) {
-    // Redirigir a la página principal al recargar la página
+  window.addEventListener("beforeunload", function (event) {
     event.preventDefault();
+    //save token in localhost
+
+    localStorage.setItem("userToken", userToken);
   });
 
   //user send message
@@ -150,6 +152,7 @@ function Chat() {
 
   const handleLogout = () => {
     setShowLogoutModal(true);
+    localStorage.setItem("userToken", "");
   };
 
   const confirmLogout = () => {
@@ -159,7 +162,6 @@ function Chat() {
     dispatch(login({ isLogged, token: "" }));
     setShowLogoutModal(false);
   };
-
   //select chat option
   const handleChatOption = ({ option }) => {
     const chatMessages = {
@@ -209,6 +211,11 @@ function Chat() {
   };
 
   useEffect(() => {
+    const localToken = localStorage.getItem("userToken");
+    if (localToken) {
+      dispatch(login({ isLoggedIn: true, token: localToken }));
+    }
+
     chatInputRef.current.focus();
     scrollToBottom();
   }, [scrollToBottom]);
