@@ -41,7 +41,8 @@ const Menu = () => {
     setLocation("/");
     // Dispatch login action with token and isLoggedIn
     dispatch(login({ isLogged, token: "" }));
-    localStorage.setItem('userToken', "");
+    localStorage.setItem("userToken", "");
+    localStorage.setItem("isLoggedIn", false);
     setShowLogoutModal(false);
   };
 
