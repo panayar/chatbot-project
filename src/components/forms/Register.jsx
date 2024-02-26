@@ -56,11 +56,6 @@ const Register = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log("Registration successful!");
-      console.log("Username:", username);
-      console.log("Email:", email);
-      console.log("Password:", password);
-
       createUser(username, email, password);
     }
   };

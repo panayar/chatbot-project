@@ -19,15 +19,13 @@ function App() {
   const dispatch = useDispatch();
   const userLog = useSelector((state) => state.user);
 
-  console.log(userLog, userLog.isLoggedIn, "APP");
-
   const userTokenLocalStorage = localStorage.getItem("userToken");
 
   useEffect(() => {
     if (userTokenLocalStorage !== null && userTokenLocalStorage !== "") {
       dispatch(login({ isLoggedIn: true, token: userTokenLocalStorage }));
     } else {
-      console.log("el usuario cerro sesion");
+      // console.log("el usuario cerro sesion");
     }
 
     // eslint-disable-next-line
