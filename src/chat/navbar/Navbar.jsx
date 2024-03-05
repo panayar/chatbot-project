@@ -14,7 +14,7 @@ function Navbar({ handleClick }) {
         />
         Adda Chat
       </Link>
-      <button className="btn-badge">Beta Version</button>
+      <button className="btn-badge">Versión Beta</button>
 
       <div className="mt-3 menu-options d-flex justify-content-center flex-wrap">
         <button

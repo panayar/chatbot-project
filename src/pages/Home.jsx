@@ -38,7 +38,7 @@ const Home = () => {
             <div>
               <Link className="link-text" to={userLog ? "/chat" : "/login"}>
                 <span className="home-try-it-out">
-                  Pruebalo
+                  Pruébalo
                   <button className="home-arrow-icon">
                     <img src={ArrowIcon} alt="arrow-icon"></img>
                   </button>

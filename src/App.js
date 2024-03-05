@@ -24,10 +24,7 @@ function App() {
   useEffect(() => {
     if (userTokenLocalStorage !== null && userTokenLocalStorage !== "") {
       dispatch(login({ isLoggedIn: true, token: userTokenLocalStorage }));
-    } else {
-      // console.log("el usuario cerro sesion");
-    }
-
+    } 
     // eslint-disable-next-line
   }, [userTokenLocalStorage]);
 

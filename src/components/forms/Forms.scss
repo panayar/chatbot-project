@@ -84,3 +84,13 @@
     transition: 0.2s;
   }
 }
+
+@media screen and (max-width: 427px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  .form-icon {
+    display: none;
+  }
+}

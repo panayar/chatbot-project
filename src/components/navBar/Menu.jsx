@@ -18,8 +18,8 @@ const Menu = () => {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   const menuOptions = [
-    { label: "Home", href: "#home", isActive: true, router: false },
-    { label: "About Us", href: "#about", isActive: false, router: false },
+    { label: "Inicio", href: "#home", isActive: true, router: false },
+    { label: "Sobre nosotros", href: "#about", isActive: false, router: false },
     { label: "Chat", href: log, isActive: false, router: true },
   ];
 
@@ -29,7 +29,7 @@ const Menu = () => {
 
   userLog
     ? menuOptions.push({
-        label: "Logout",
+        label: "Cerrar Sesión",
         action: handleLogout,
         isActive: false,
         router: false,
@@ -91,7 +91,7 @@ const Menu = () => {
                         to={option.href}
                         className={`nav-link ${
                           option.isActive ? "active" : ""
-                        } ${option.label === "Logout" ? "text-danger" : ""}`}
+                        } ${option.label === "Cerrar Sesión" ? "text-danger" : ""}`}
                       >
                         {option.label}
                       </Link>
@@ -100,7 +100,7 @@ const Menu = () => {
                         onClick={option.action}
                         className={`nav-link ${
                           option.isActive ? "active" : ""
-                        }  ${option.label === "Logout" ? "text-danger" : ""}`}
+                        }  ${option.label === "Cerrar Sesión" ? "text-danger" : ""}`}
                         href={option.href}
                       >
                         {option.label}

@@ -23,7 +23,7 @@ function SideMenu({ handleLogout }) {
           Adda Chat
         </Link>
 
-        <button className="btn-badge">Beta Version</button>
+        <button className="btn-badge">Versión Beta</button>
       </div>
       <div className="robot-container">
         <img src={Robot} alt="robot-figure" className="robot-figure floating" />

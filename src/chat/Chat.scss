@@ -170,8 +170,9 @@
 
 .chat-input-holder-fixed {
   width: 100%;
-  margin-bottom: 2%;
+  height: auto;
   margin-top: 3px;
+  margin-bottom: 2%;
   background-color: #020209;
   position: fixed;
   bottom: 0;
@@ -206,7 +207,7 @@
     margin-left: -2px;
     position: absolute;
     width: 30px;
-    height: 30px;
+    height: 30px; 
   }
 }
 
@@ -432,7 +433,7 @@
 
   .chat-input-textarea {
     width: 80%;
-    margin-bottom: 8%;
+
   }
 
   .chat-log {
@@ -449,6 +450,17 @@
   .chat-log {
     margin-top: 100px;
   }
+
+  .span-input-text{
+    display: none;
+  }
+
+
+  .chat-input-holder-fixed {
+    padding: 12px;
+    margin-bottom: -15px;
+  }
+
 }
 
 @media screen and (max-width: 599px) {

@@ -99,19 +99,19 @@ const Register = () => {
             <div className="col-12">
               <img className="form-icon" src={Logo} alt="Logo" />
               <h2 className="form-title">
-                Hello! Register to get <br /> started
+                ¡Hola! <br /> Regístrate para comenzar.
               </h2>
             </div>
             <div className="col-12 mt-4">
               {creation && (
                 <div className="alert alert-success transition" role="alert">
-                  User created successfully!
+                  ¡Usuario creado exitosamente!
                 </div>
               )}
               <form onSubmit={handleSubmit}>
                 {Object.keys(errors).length > 0 && (
                   <div className="alert alert-warning" role="alert">
-                    Please correct the following errors:
+                    Por favor, corrige los siguientes errores:
                     <ul>
                       {Object.values(errors).map((error, index) => (
                         <li key={index}>{error}</li>
@@ -123,7 +123,7 @@ const Register = () => {
                   <input
                     className="form-input"
                     type="text"
-                    placeholder="Username"
+                    placeholder="Nombre de usuario"
                     value={username}
                     onChange={handleUsernameChange}
                   />
@@ -132,7 +132,7 @@ const Register = () => {
                   <input
                     className="form-input"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Ingresa tu correo electrónico"
                     value={email}
                     onChange={handleEmailChange}
                   />
@@ -141,7 +141,7 @@ const Register = () => {
                   <input
                     className="form-input"
                     type="password"
-                    placeholder="Enter your password"
+                    placeholder="Ingresa tu contraseña"
                     value={password}
                     onChange={handlePasswordChange}
                   />
@@ -150,23 +150,23 @@ const Register = () => {
                   <input
                     className="form-input"
                     type="password"
-                    placeholder="Confirm your password"
+                    placeholder="Confirma tu contraseña"
                     value={confirmPassword}
                     onChange={handleConfirmPasswordChange}
                   />
                 </div>
                 <div className="col-12 mt-5">
                   <button type="submit" className="form-button">
-                    Register
+                    Registrarse
                   </button>
                 </div>
               </form>
             </div>
             <p className="form-text">
-              Already have an account?{" "}
-              <span className="form-span">
+              ¿Ya tienes una cuenta?
+              <span className="form-span ml-2">
                 <Link className="link-text" to="/login">
-                  Login Now
+                  Iniciar sesión ahora
                 </Link>
               </span>
             </p>

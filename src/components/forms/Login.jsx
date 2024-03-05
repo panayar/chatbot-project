@@ -90,32 +90,33 @@ const Login = () => {
             <div className="col-12">
               <img className="form-icon" src={Logo} alt="Logo" />
               <h2 className="form-title">
-                Welcome back! Glad <br /> to see you, Again!
+                ¡Bienvenido de vuelta! <br /> ¡Qué alegría verte de nuevo!
               </h2>
             </div>
             <div className="col-12 mt-4">
               <form onSubmit={handleSubmit}>
                 {isAlertVisible && (
                   <div className="alert alert-warning transition" role="alert">
-                    Please enter both email and password.
+                    Por favor, ingresa tanto el correo electrónico como la
+                    contraseña.
                   </div>
                 )}
                 {isLogged && (
                   <div className="alert alert-success transition" role="alert">
-                    Login successful!
+                    ¡Inicio de sesión exitoso!
                   </div>
                 )}
 
                 {error && (
                   <div className="alert alert-danger transition" role="alert">
-                    Invalid email or password.
+                    Correo electrónico o contraseña inválidos.
                   </div>
                 )}
                 <div className="col-12">
                   <input
                     className="form-input"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Ingresa tu correo electrónico"
                     value={email}
                     onChange={handleEmailChange}
                   />
@@ -124,28 +125,23 @@ const Login = () => {
                   <input
                     className="form-input"
                     type="password"
-                    placeholder="Enter your password"
+                    placeholder="Ingresa tu contraseña"
                     value={password}
                     onChange={handlePasswordChange}
                   />
                 </div>
                 <div className="col-12 mt-5">
                   <button type="submit" className="form-button">
-                    Login
+                    Inicio de sesión
                   </button>
                 </div>
               </form>
-              <p className="form-text">
-                <Link className="link-text" to="/forgotpass">
-                  Forgot your password?
-                </Link>{" "}
-              </p>
             </div>
             <p className="form-text">
               Don't you have an account?{" "}
               <span className="form-span">
                 <Link className="link-text" to="/register">
-                  Register now
+                  Registrarse ahora
                 </Link>{" "}
               </span>
             </p>
