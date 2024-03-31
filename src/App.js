@@ -40,7 +40,6 @@ function App() {
         <Route path="/forgotpass" component={ForgotPass} />
         <Route path="/newpass" component={NewPass} />
         {userLog.isLoggedIn && <Route path="/chat" component={Chat} />}
-        <Route path="/chat" component={Chat} />
         <Route path="/verifyOTP" component={VerifyOTPCode} />
         {!matched && <NotFound />}
       </Router>
