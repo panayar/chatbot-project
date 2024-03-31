@@ -1,4 +1,4 @@
-import { Route, Router } from "wouter";
+import { Route, Router, useRoute } from "wouter";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/global.scss";
@@ -14,6 +14,7 @@ import Main from "./pages/Main";
 import { login } from "./redux/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,8 @@ function App() {
     // eslint-disable-next-line
   }, [userTokenLocalStorage]);
 
+  const [matched] = useRoute();
+
   return (
     <div className="container-fluid">
       <Router>
@@ -38,6 +41,7 @@ function App() {
         <Route path="/newpass" component={NewPass} />
         {userLog.isLoggedIn && <Route path="/chat" component={Chat} />}
         <Route path="/verifyOTP" component={VerifyOTPCode} />
+        {!matched && <NotFound />}
       </Router>
     </div>
   );
