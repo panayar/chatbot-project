@@ -243,7 +243,16 @@ function Chat() {
 
           <div className="chat-options-container">
             <div className="chatbot-options">
-              <div className="row mt-4" style={{position: "fixed", zIndex: 2, backgroundColor: "#020209", paddingRight: "200px", paddingLeft: "200px"}}>
+              <div
+                className="row mt-4"
+                style={{
+                  position: "fixed",
+                  zIndex: 2,
+                  backgroundColor: "#020209",
+                  paddingRight: "200px",
+                  paddingLeft: "200px",
+                }}
+              >
                 <div className="col-lg-6 col-sm-12 mt-4">
                   <ChatOption
                     option="conversational"
