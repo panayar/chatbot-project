@@ -214,7 +214,7 @@ function Chat() {
   }, [scrollToBottom]);
 
   const closeSessionAfterSomeTime = () => {
-    const TIMEOUT_DURATION = 600000; // 5 minutos en milisegundos
+    const TIMEOUT_DURATION = 60 * 60 * 1000; // se cierra la sesión después de 1 hora de inactividad
 
     setTimeout(() => {
       localStorage.setItem("userToken", "");
