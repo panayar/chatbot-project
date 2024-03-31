@@ -179,7 +179,9 @@
   & img {
     width: 30px;
     height: 30px;
-   
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 

@@ -5,6 +5,7 @@ const initialState = {
   token: "",
 };
 
+
 export const userSlice = createSlice({
   name: "user",
   initialState,

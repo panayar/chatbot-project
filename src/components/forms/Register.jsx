@@ -38,23 +38,29 @@ const Register = () => {
     // Basic validation
     const newErrors = {};
     if (!username) {
-      newErrors.username = "Username is required.";
+      newErrors.username = "Nombre de usuario requerido";
     }
     if (!email) {
-      newErrors.email = "Email is required.";
+      newErrors.email = "Email requerido";
     }
     if (!password) {
-      newErrors.password = "Password is required.";
+      newErrors.password = "Contraseña requerida";
     }
     if (!confirmPassword) {
-      newErrors.confirmPassword = "Confirm password is required.";
+      newErrors.confirmPassword = "Confirma tu contraseña.";
     } else if (password !== confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match.";
+      newErrors.confirmPassword = "Las contraseñas no coinciden.";
     }
 
+    if(password.length < 6){
+      newErrors.password = "La contraseña debe tener al menos 6 caracteres";
+    } 
+    
     // Update errors state
     setErrors(newErrors);
 
+    console.log("Errors:", newErrors);
+    
     if (Object.keys(newErrors).length === 0) {
       createUser(username, email, password);
     }
@@ -63,7 +69,7 @@ const Register = () => {
   const createUser = async (username, email, password) => {
     try {
       const response = await fetch(
-        `https://conversemos-backend.onrender.com/user`,
+        `https://conversemos-back-end.onrender.com/api/user`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -71,22 +77,30 @@ const Register = () => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      console.log("Response:", response);
 
       const data = await response.json();
-      console.log("User created successfully:", data);
-      setCreation(true);
-      setTimeout(() => {
-        setLocation("/login");
-      }, 2000);
-      dispatch(setLog({ isLoggedIn: true }));
 
-      return data;
+      if (data.message === "User already exists") {
+        setErrors({ email: "El usuario ya existe" });
+        return;
+      }
+      if (data.message === "Error creating user") {
+        setErrors({ email: "Hubo un error al crear el usuario" });
+        return;
+      } else {
+        console.log("User created successfully:", data);
+        setCreation(true);
+        setTimeout(() => {
+          setLocation("/login");
+        }, 2000);
+        dispatch(setLog({ isLoggedIn: true }));
+
+        return data;
+      }
     } catch (error) {
       console.error("Error creating user:", error);
-      throw error; // Rethrow the error for higher-level handling
+      throw error;
     }
   };
 
@@ -111,7 +125,7 @@ const Register = () => {
               <form onSubmit={handleSubmit}>
                 {Object.keys(errors).length > 0 && (
                   <div className="alert alert-warning" role="alert">
-                    Por favor, corrige los siguientes errores:
+                    <strong>Error:</strong>
                     <ul>
                       {Object.values(errors).map((error, index) => (
                         <li key={index}>{error}</li>
@@ -164,7 +178,7 @@ const Register = () => {
             </div>
             <p className="form-text">
               ¿Ya tienes una cuenta?
-              <span className="form-span ml-2">
+              <span className="form-span ml-3" style={{ marginLeft: "10px" }}>
                 <Link className="link-text" to="/login">
                   Iniciar sesión ahora
                 </Link>

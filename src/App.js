@@ -1,4 +1,4 @@
-import { Route, Router, useRoute } from "wouter";
+import { Route, Router, Switch } from "wouter";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/global.scss";
@@ -29,19 +29,19 @@ function App() {
     // eslint-disable-next-line
   }, [userTokenLocalStorage]);
 
-  const [matched] = useRoute();
-
   return (
     <div className="container-fluid">
       <Router>
-        <Route path="/" component={Main} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/forgotpass" component={ForgotPass} />
-        <Route path="/newpass" component={NewPass} />
-        {userLog.isLoggedIn && <Route path="/chat" component={Chat} />}
-        <Route path="/verifyOTP" component={VerifyOTPCode} />
-        {!matched && <NotFound />}
+        <Switch>
+          <Route path="/" component={Main} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/newpass" component={NewPass} />
+          <Route path="/forgotpass" component={ForgotPass} />
+          <Route path="/verifyOTP" component={VerifyOTPCode} />
+          {userLog.isLoggedIn && <Route path="/chat" component={Chat} />}
+          <Route component={NotFound} />
+        </Switch>
       </Router>
     </div>
   );
