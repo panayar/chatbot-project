@@ -30,7 +30,7 @@
 .sideMenu {
   width: 550px;
   padding: 10px;
-  z-index: 2;
+  z-index: 4;
   border-radius: 0px 20px 20px 0px;
   background-color: #19202b;
   color: white;
@@ -331,31 +331,26 @@
 }
 
 // chatbot Options
-
 .chatbot-options {
   display: flex;
   height: 8%;
-  position: fixed;
-  background-color: #020209;
+  // background-color: #020209;
   z-index: 1;
-  margin-left: -60px;
-  width: 90%;
+  width: 50%;
   align-items: center;
   justify-content: center;
-  margin-top: -10px;
+  margin: 0 auto;
+  margin-top: 12px;
 }
 
-.chatbot-conversational-opt {
+.chatbot-conversational-opt{
   width: 20rem;
   justify-content: center;
   padding: 5px;
   cursor: pointer;
-
   animation: fadeIn 2s ease forwards;
   color: white;
-
   border-radius: 15px;
-
   border: 2px solid #2b7996;
   background-color: #2b7996;
 
@@ -437,7 +432,7 @@
   }
 
   .chat-log {
-    margin-top: 10%;
+    margin-top: 5%;
   }
 
   //chat options

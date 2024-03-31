@@ -241,32 +241,35 @@ function Chat() {
             Selecciona una opción
           </p>
 
-          <div className="chatbot-options container">
-            <div className="row">
-              <div className="col-lg-6 col-sm-12">
-                <ChatOption
-                  option="conversational"
-                  title="Chatbot Conversacional"
-                  description="Un chatbot conversacional que simula una conversación con un terapeuta."
-                  selectedOption={chatOption}
-                  handleChatOption={() =>
-                    handleChatOption({ option: "conversational" })
-                  }
-                />
-              </div>
-              <div className="col-lg-6 col-sm-12">
-                <ChatOption
-                  option="informative"
-                  title="Chatbot Informativo"
-                  description="Un chatbot que proporciona información sobre la depresión y recursos para su tratamiento."
-                  selectedOption={chatOption}
-                  handleChatOption={() =>
-                    handleChatOption({ option: "informative" })
-                  }
-                />
+          <div className="chat-options-container">
+            <div className="chatbot-options">
+              <div className="row mt-4" style={{position: "fixed", zIndex: 2, backgroundColor: "#020209", paddingRight: "200px", paddingLeft: "200px"}}>
+                <div className="col-lg-6 col-sm-12 mt-4">
+                  <ChatOption
+                    option="conversational"
+                    title="Chatbot Conversacional"
+                    description="Un chatbot conversacional que simula una conversación con un terapeuta."
+                    selectedOption={chatOption}
+                    handleChatOption={() =>
+                      handleChatOption({ option: "conversational" })
+                    }
+                  />
+                </div>
+                <div className="col-lg-6 col-sm-12 mt-4">
+                  <ChatOption
+                    option="informative"
+                    title="Chatbot Informativo"
+                    description="Un chatbot que proporciona información sobre la depresión y recursos para su tratamiento."
+                    selectedOption={chatOption}
+                    handleChatOption={() =>
+                      handleChatOption({ option: "informative" })
+                    }
+                  />
+                </div>
               </div>
             </div>
           </div>
+
           <ChatLog messages={messages} />
           <ChatInput
             disabled={inputDisabled}

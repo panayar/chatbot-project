@@ -16,7 +16,7 @@ function NotFound() {
       />
       <h1 className="mt-3">404 - Página no encontrada</h1>
       <p className="lead">¡Oops! La página que estás buscando no existe.</p>
-      <Link to="/" className="btn btn-primary">
+      <Link to="/" className="btn btn-primary btn-primary-nofound">
         Volver a la página de inicio
       </Link>
     </div>
